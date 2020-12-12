@@ -17,43 +17,43 @@ Files with WIP at start are files that are a Work in Progress (NOT DONE BELOW).
 Algorithm Hub
 ├── Data Structures                    # implementation of common data structures
 │   ├── Graph                          # graph
-│   	└── graph.cpp
+│   │	└── graph.cpp
 │   ├── Hash Table
-│   	└── hash_table.cpp
+│   │	└── hash_table.cpp
 │   ├── Linked List                    # singly/doubly linked list
-│   	├── Doubly Linked List
-│   		├── doubly_linked_list.cpp
-│   		└── doubly_linked_list.h
-│   	└── Singly Linked List
-│   		├── singly_linked_list.cpp
-│   		└── singly_linked_list.h
+│   │	├── Doubly Linked List
+│   │	│	├── doubly_linked_list.cpp
+│   │	│	└── doubly_linked_list.h
+│   │	└── Singly Linked List
+│   │		├── singly_linked_list.cpp
+│   │		└── singly_linked_list.h
 │   ├── Queue                          # queue array/linked-list
-│   	├── Priority Queue
-│   		├── priority_queue.cpp
-│   		└── priority_queue.h
-│   	├── Queue Array
-│   		├── queue_array.cpp
-│   		└── queue_array.h
-│   	└── Queue Linked
-│   		├── queue_linked.cpp
-│   		└── queue_linked.h
+│   │	├── Priority Queue
+│   │	│	├── priority_queue.cpp
+│   │	│	└── priority_queue.h
+│   │	├── Queue Array
+│   │	│	├── queue_array.cpp
+│   │	│	└── queue_array.h
+│   │	└── Queue Linked
+│   │		├── queue_linked.cpp
+│   │		└── queue_linked.h
 │   ├── Stack                          # stack array/linked-list
-│   	├── Stack Array
-│   		├── stack_array.cpp
-│   		└── stack_array.h
-│   	└── Stack Linked
-│   		├── stack_linked.cpp
-│   		└── stack_linked.h
+│   │	├── Stack Array
+│   │	│	├── stack_array.cpp
+│   │	│	└── stack_array.h
+│   │	└── Stack Linked
+│   │		├── stack_linked.cpp
+│   │		└── stack_linked.h
 │   └── Tree                           # BST/binary tree/heap/trie
 │   	├── Binary Search Tree
-│   		├── BST.cpp
-│   		└── BST.h
+│   	│	├── BST.cpp
+│   	│	└── BST.h
 │   	├── Binary Tree
-│   		├── binary_tree.cpp
-│   		└── binary_tree.h
+│   	│	├── binary_tree.cpp
+│   	│	└── binary_tree.h
 │   	├── Heap
-│   		├── heap.cpp
-│   		└── heap.h
+│   	│	├── heap.cpp
+│   	│	└── heap.h
 │   	└── Trie
 │   		├── trie.cpp
 │   		└── trie.h
