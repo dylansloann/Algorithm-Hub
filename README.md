@@ -74,9 +74,9 @@ Algorithm Hub
 │   ├── quick_sort.cpp
 │   ├── radix_sort.cpp
 │   └── selection_sort.cpp
-├── Tree Traversal                     # tree traversal algorithms
-│   ├── bfs_tree.cpp
-│   └── dfs_tree.cpp
+└── Tree Traversal                     # tree traversal algorithms
+    ├── bfs_tree.cpp
+    └── dfs_tree.cpp
 ```
 
 [header-screenshot]: header.jpg
