@@ -17,9 +17,15 @@ Files with WIP at start are files that are a Work in Progress (NOT DONE BELOW).
 Algorithm Hub
 ├── Data Structures                    # implementation of common data structures
 │   ├── Graph                          # graph
-│   │	└── graph.cpp
+│   │	└── Graph
+│   │		├── graph.cpp
+│   │		└── graph.h
+│   │	└── Weighted Graph
+│   │		├── weighted_graph.cpp
+│   │		└── weighted_graph.h
 │   ├── Hash Table
-│   │	└── hash_table.cpp
+│   │	├── hash_table.cpp
+│   │	└── hash_table.h
 │   ├── Linked List                    # singly/doubly linked list
 │   │	├── Doubly Linked List
 │   │	│	├── doubly_linked_list.cpp
