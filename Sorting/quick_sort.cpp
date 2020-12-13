@@ -14,6 +14,7 @@ int partion(int array[], size_t leftEnd, size_t rightEnd) {
 	int pivot = array[leftEnd];
 	int swapIndex = leftEnd;
 
+	// moves all items that are less than pivot to the left
 	for (size_t i = leftEnd + 1; i <= rightEnd; i++) {
 		if (array[i] < pivot) {
 			swapIndex++;
@@ -21,6 +22,7 @@ int partion(int array[], size_t leftEnd, size_t rightEnd) {
 		}
 	}
 
+	// swaps pivot with last item moved
 	swap(array, leftEnd, swapIndex);
 	return swapIndex;
 }
@@ -28,6 +30,7 @@ int partion(int array[], size_t leftEnd, size_t rightEnd) {
 void quickSort(int array[], int leftEnd, int rightEnd) {
 	if (leftEnd >= rightEnd) { return; }
 	int pivotIndex = partion(array, leftEnd, rightEnd);
+	// recursively calls quickSort on left and right side of the pivotIndex
 	quickSort(array, leftEnd, pivotIndex - 1);
 	quickSort(array, pivotIndex + 1, rightEnd);
 }

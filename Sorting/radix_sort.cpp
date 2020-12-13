@@ -21,7 +21,7 @@ int largestDigitAmount(int array[], size_t length) {
 	return max;
 }
 
-void twoDimensionalvectorToArray(vector<std::vector<int>> vec, int arr[]) {
+void twoDimensionalVectorToArray(vector<std::vector<int>> vec, int arr[]) {
 	int* iterator = arr;
 	for (size_t i = 0; i < vec.size(); i++) {
 		std::copy(vec[i].begin(), vec[i].end(), iterator);
@@ -32,15 +32,21 @@ void twoDimensionalvectorToArray(vector<std::vector<int>> vec, int arr[]) {
 void radixSort(int array[], size_t length) {
 	size_t maxDigitAmount = largestDigitAmount(array, length);
 	for (size_t i = 0; i < maxDigitAmount; i++) {
+		// 2d vector for storing arrays items in correct "bucket"
 		vector<vector<int>> digitBuckets;
 		digitBuckets.resize(10);
+
 		for (size_t j = 0; j < length; j++) {
+			// calculates digit for correct indexing of digitBuckets
 			int digit = getDigitAtIndex(array[j], i);
 			digitBuckets[digit].push_back(array[j]);
 		}
-		twoDimensionalvectorToArray(digitBuckets, array);
+		/* updates our array with values correlating to to the 
+		   item order and bucket order of digitBuckets */
+		twoDimensionalVectorToArray(digitBuckets, array);
 	}
 }
+
 
 
 

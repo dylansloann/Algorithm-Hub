@@ -9,11 +9,14 @@ void selectionSort(int array[], size_t length) {
 
 	for (size_t i = 0; i < length; i++) {
 		minIndex = i;
+		// iterates to obtain minimum index
 		for (size_t j = i + 1; j < length; j++) {
 			if (array[j] < array[minIndex]) {
 				minIndex = j;
 			}
 		}
+		/* swaps min to correct position in list if a 
+		   change of the original minIndex was made */
 		if (minIndex != i) {
 			tempValue = array[i];
 			array[i] = array[minIndex];
