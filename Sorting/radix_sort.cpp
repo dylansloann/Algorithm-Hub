@@ -32,7 +32,7 @@ void twoDimensionalVectorToArray(vector<std::vector<int>> vec, int arr[]) {
 void radixSort(int array[], size_t length) {
 	size_t maxDigitAmount = largestDigitAmount(array, length);
 	for (size_t i = 0; i < maxDigitAmount; i++) {
-		// 2d vector for storing arrays items in correct "bucket"
+		// 2d vector for storing array items in correct "bucket"
 		vector<vector<int>> digitBuckets;
 		digitBuckets.resize(10);
 

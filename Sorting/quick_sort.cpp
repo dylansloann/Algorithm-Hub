@@ -30,6 +30,7 @@ int partion(int array[], size_t leftEnd, size_t rightEnd) {
 void quickSort(int array[], int leftEnd, int rightEnd) {
 	if (leftEnd >= rightEnd) { return; }
 	int pivotIndex = partion(array, leftEnd, rightEnd);
+	
 	// recursively calls quickSort on left and right side of the pivotIndex
 	quickSort(array, leftEnd, pivotIndex - 1);
 	quickSort(array, pivotIndex + 1, rightEnd);
