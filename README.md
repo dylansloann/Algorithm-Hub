@@ -38,31 +38,31 @@ Algorithm Hub
 │   │   │   ├── priority_queue.cpp
 │   │   │   └── priority_queue.h
 │   │	├── Queue Array
-│   │	│	├── queue_array.cpp
-│   │	│	└── queue_array.h
+│   │	│   ├── queue_array.cpp
+│   │	│   └── queue_array.h
 │   │	└── Queue Linked
-│   │		├── queue_linked.cpp
-│   │		└── queue_linked.h
+│   │	    ├── queue_linked.cpp
+│   │	    └── queue_linked.h
 │   ├── Stack                          # stack array/linked-list
 │   │	├── Stack Array
-│   │	│	├── stack_array.cpp
-│   │	│	└── stack_array.h
+│   │	│   ├── stack_array.cpp
+│   │	│   └── stack_array.h
 │   │	└── Stack Linked
-│   │		├── stack_linked.cpp
-│   │		└── stack_linked.h
+│   │	    ├── stack_linked.cpp
+│   │	    └── stack_linked.h
 │   └── Tree                           # BST/binary tree/heap/trie
 │   	├── Binary Search Tree
-│   	│	├── BST.cpp
-│   	│	└── BST.h
+│   	│   ├── BST.cpp
+│   	│   └── BST.h
 │   	├── Binary Tree
-│   	│	├── binary_tree.cpp
-│   	│	└── binary_tree.h
+│   	│   ├── binary_tree.cpp
+│   	│   └── binary_tree.h
 │   	├── Heap
-│   	│	├── heap.cpp
-│   	│	└── heap.h
+│   	│   ├── heap.cpp
+│   	│   └── heap.h
 │   	└── Trie
-│   		├── trie.cpp
-│   		└── trie.h
+│   	    ├── trie.cpp
+│   	    └── trie.h
 ├── Graph Traversal                    # graph traversal algorithms
 │   ├── a_star.cpp
 │   ├── bfs_graph.cpp
