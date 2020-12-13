@@ -18,25 +18,25 @@ Algorithm Hub
 ├── Data Structures                    # implementation of common data structures
 │   ├── Graph                          # graph
 │   │	└── Graph
-│   │		├── graph.cpp
-│   │		└── graph.h
+│   │	    ├── graph.cpp
+│   │	    └── graph.h
 │   │	└── Weighted Graph
-│   │		├── weighted_graph.cpp
-│   │		└── weighted_graph.h
+│   │	    ├── weighted_graph.cpp
+│   │	    └── weighted_graph.h
 │   ├── Hash Table
-│   │	├── hash_table.cpp
-│   │	└── hash_table.h
+│   │   ├── hash_table.cpp
+│   │   └── hash_table.h
 │   ├── Linked List                    # singly/doubly linked list
 │   │	├── Doubly Linked List
-│   │	│	├── doubly_linked_list.cpp
-│   │	│	└── doubly_linked_list.h
+│   │	│   ├── doubly_linked_list.cpp
+│   │	│   └── doubly_linked_list.h
 │   │	└── Singly Linked List
-│   │		├── singly_linked_list.cpp
-│   │		└── singly_linked_list.h
+│   │	    ├── singly_linked_list.cpp
+│   │	    └── singly_linked_list.h
 │   ├── Queue                          # queue array/linked-list
-│   │	├── Priority Queue
-│   │	│	├── priority_queue.cpp
-│   │	│	└── priority_queue.h
+│   │   ├── Priority Queue
+│   │   │   ├── priority_queue.cpp
+│   │   │   └── priority_queue.h
 │   │	├── Queue Array
 │   │	│	├── queue_array.cpp
 │   │	│	└── queue_array.h
