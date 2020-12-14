@@ -1,13 +1,11 @@
 #ifndef STACK_ARRAY_H
 #define STACK_ARRAY_H
 
-#include <iostream>
-
 class Stack {
 	private:
 		int* stackArray;
 		int capacity;
-		int length;
+		int size;
 	public:
 		// constructors/destructor
 		Stack();

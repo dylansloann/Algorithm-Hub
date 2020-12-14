@@ -12,17 +12,17 @@ class Node {
 		Node(int value);
 };
 
-class Queue {
+class LinkedQueue {
 	private:
-		int* queueArray;
-		int length;
-		int front, back;
+		int _size;
+		Node* head;
+		Node* tail;
 	public:
 		// constructors/destructor
-		Queue();
-		Queue(const Queue& other);
-		Queue& operator=(const Queue& rhs);
-		~Queue();
+		LinkedQueue();
+		LinkedQueue(const LinkedQueue& other);
+		LinkedQueue& operator=(const LinkedQueue& rhs);
+		~LinkedQueue();
 
 		// operations
 		void enqueue(int data);
@@ -32,6 +32,11 @@ class Queue {
 		int size();
 		bool empty();
 
+		// only for use in destructor/copy assignment operator
+		void clear();
+
 		// display queue
 		void display();
 };
+
+#endif

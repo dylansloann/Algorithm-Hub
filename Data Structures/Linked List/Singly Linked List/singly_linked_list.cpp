@@ -16,10 +16,10 @@ Node::Node(int value) : data(value), link(nullptr) {}
 // ================== Linked List ==================
 
 // default constructor
-List::List() : head(nullptr), tail(nullptr),  _size(0) {}
+SinglyLinkedList::SinglyLinkedList() : head(nullptr), tail(nullptr),  _size(0) {}
 
 // copy constructor
-List::List(const List& other) {
+SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other) {
 	// if other list is empty
 	if (other.head == nullptr) { head = nullptr; tail = nullptr; _size = 0; return; }
 
@@ -36,13 +36,13 @@ List::List(const List& other) {
 		tempCurrent = tempCurrent->link;
 	}
 	
-	// updates size and tail
+	// updates _size and tail
 	_size = other._size;
 	tail = current;
 }
 
 // copy assignment operator
-List& List::operator=(const List& rhs) {
+SinglyLinkedList& SinglyLinkedList::operator=(const SinglyLinkedList& rhs) {
 	// checks for self equal/empty
 	if (head == rhs.head && tail == rhs.tail && _size == rhs._size) { return *this; }
 	else if (rhs.head == nullptr) { head = nullptr; tail = nullptr; _size = 0; return *this; }
@@ -63,7 +63,7 @@ List& List::operator=(const List& rhs) {
 		tempCurrent = tempCurrent->link;
 	}
 	
-	// updates size and tail
+	// updates _size and tail
 	_size = rhs._size;
 	tail = current;
 
@@ -71,34 +71,34 @@ List& List::operator=(const List& rhs) {
 }
 
 // destructor
-List::~List() { clear(); }
+SinglyLinkedList::~SinglyLinkedList() { clear(); }
 
 // checking for empty
-bool List::empty() { 
+bool SinglyLinkedList::empty() { 
 	if (_size == 0) { return true; }
 	else { return false; }
 }
 
-// obtaining size
-int List::size() { return _size; }
+// obtaining _size
+int SinglyLinkedList::size() { return _size; }
 
 // clears list of all nodes
-void List::clear() {
+void SinglyLinkedList::clear() {
 	Node* temp;
-	for (size_t i = 0; i < _size; i++) {
+	for (int i = 0; i < _size; i++) {
 		temp = head;
 		head = head->link;
 		delete temp;
 	}
 
-	// reset ptr values/size
+	// reset ptr values/_size
 	head = nullptr;
 	tail = nullptr;
 	_size = 0;
 }
 
 // creates list from single node
-void List::create_single(Node* node) {
+void SinglyLinkedList::create_single(Node* node) {
 	head = node;
 	tail = node;
 	node->link = nullptr;
@@ -106,7 +106,7 @@ void List::create_single(Node* node) {
 }
 
 // deletes list of a single node
-void List::remove_single() {
+void SinglyLinkedList::remove_single() {
 	delete head;
 	head = nullptr;
 	tail = nullptr;
@@ -114,14 +114,11 @@ void List::remove_single() {
 }
 
 // inserting at front
-void List::push_front(int value) {
-	// creating node
+void SinglyLinkedList::push_front(int value) {
 	Node* node = new Node(value);
-	
-	// pre empty list
+
 	if (empty()) { create_single(node); }
 
-	// list pre containing elements
 	else {
 		node->link = head;
 		head = node;
@@ -130,14 +127,11 @@ void List::push_front(int value) {
 }
 
 // inserting at back
-void List::push_back(int value) {
-	// creating node
+void SinglyLinkedList::push_back(int value) {
 	Node* node = new Node(value);
 
-	// pre empty list
 	if (empty()) { create_single(node); }
 
-	// list pre containing elements
 	else {
 		tail->link = node;
 		tail = node;
@@ -146,7 +140,7 @@ void List::push_back(int value) {
 }
 
 // inserting at index
-void List::insert(int value, size_t index) {
+void SinglyLinkedList::insert(int value, int index) {
 	// error checking
 	if (index > _size) { throw std::invalid_argument("Index too large."); }
 
@@ -157,14 +151,12 @@ void List::insert(int value, size_t index) {
 	// creating node
 	Node* node = new Node(value);
 
-	// pre empty list
 	if (empty()) { create_single(node); }
 	
-	// inserting in middle
 	else {
 		Node* current = head;
 		Node* previous = head;
-		for (size_t i = 0; i < _size; i++) {
+		for (int i = 0; i < _size; i++) {
 			if (i == index) {
 				previous->link = node;
 				node->link = current;
@@ -178,13 +170,13 @@ void List::insert(int value, size_t index) {
 }
 
 // determines if list contains value
-bool List::contains(int value) const {
-	Node* newCurrent = head;
-	for (size_t i = 0; i < _size; i++) {
-		if (newCurrent->data == value) {
+bool SinglyLinkedList::contains(int value) {
+	Node* current = head;
+	for (int i = 0; i < _size; i++) {
+		if (current->data == value) {
 			return true;
 		}
-		newCurrent = newCurrent->link;
+		current = current->link;
 	}
 
 	// if no value was found
@@ -192,14 +184,13 @@ bool List::contains(int value) const {
 }
 
 // removing at front
-void List::remove_front() {
+void SinglyLinkedList::remove_front() {
 	// pre empty list
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
 	// if list contains single node
 	else if (_size == 1) { remove_single(); }
 
-	// list pre containing more than 1 element
 	else {
 		Node* temp;
 		temp = head;
@@ -210,14 +201,12 @@ void List::remove_front() {
 }
 
 // removing at back
-void List::remove_back() {
-	// pre empty list
+void SinglyLinkedList::remove_back() {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
 	// if list contains single node
 	else if (_size == 1) { remove_single(); return; }
 
-	// list pre containing more than 1 element
 	Node* current = head;
 	Node* previous = head;
 	while (current != nullptr) {
@@ -231,11 +220,10 @@ void List::remove_back() {
 }
 
 // removing index in middle
-void List::remove(size_t index) {
-	// pre empty list
+void SinglyLinkedList::remove(int index) {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
-	// if list contains single node with value
+	// if list contains single node
 	else if (_size == 1 && index == 0) { remove_single(); return; }
 
 	// if value is at front
@@ -243,7 +231,7 @@ void List::remove(size_t index) {
 
 	Node* current = head;
 	Node* previous = head;
-	for (size_t i = 0; i < index; i++) {
+	for (int i = 0; i < index; i++) {
 		previous = current;
 		current = current->link;
 	}
@@ -261,20 +249,33 @@ void List::remove(size_t index) {
 		delete current;
 	}
 
-	// decrement size
 	_size--;
 }
 
-// obtains value of first node
-int List::front() { return head->data; }
+void SinglyLinkedList::reverse() {
+    Node* current = head;
+    Node* previous = nullptr;
+    Node* next = nullptr;
 
-// obtains value of last node
-int List::back() { return tail->data; }
+    while (current != nullptr) {
+        next = current->link;
+        current->link = previous;
+        previous = current;
+        current = next;
+    }
+    head = previous;
+}
+
+// obtains first node
+const Node* SinglyLinkedList::front() { return head; }
+
+// obtains last node
+const Node* SinglyLinkedList::back() { return tail; }
 
 // displays list with values and links
-void List::display() {
+void SinglyLinkedList::display() {
 	Node* current = head;
-	for (size_t i = 0; i < _size; i++) {
+	for (int i = 0; i < _size; i++) {
 		cout << '[' << current->data << ']' << "-->";
 		current = current->link;
 	}

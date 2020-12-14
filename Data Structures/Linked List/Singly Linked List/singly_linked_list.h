@@ -1,8 +1,6 @@
 #ifndef SINGLY_LINKED_LIST_H
 #define SINGLY_LINKED_LIST_H
 
-#include <iostream>
-
 class Node {
 	public:
 		int data;
@@ -12,17 +10,17 @@ class Node {
 		Node(int value);
 };
 
-class List {
+class SinglyLinkedList {
 	private:
 		Node* head;
 		Node* tail;
-		size_t _size;
+		int _size;
 	public:
 		// constructors/destructor
-		List();
-		List(const List& other);
-		List& operator=(const List& rhs);
-		~List();
+		SinglyLinkedList();
+		SinglyLinkedList(const SinglyLinkedList& other);
+		SinglyLinkedList& operator=(const SinglyLinkedList& rhs);
+		~SinglyLinkedList();
 
 		// checking and getting size
 		bool empty();
@@ -38,17 +36,20 @@ class List {
 		// inserting a node
 		void push_front(int value);
 		void push_back(int value);
-		void insert(int value, size_t index);
-		bool contains(int value) const;
+		void insert(int value, int index);
+		bool contains(int value);
 
 		// removing a node
 		void remove_front();
 		void remove_back();
-		void remove(size_t index);
+		void remove(int index);
 
-		// obtains Node value at front or back
-		int front();
-		int back();
+		// reversing the list
+		void reverse();
+
+		// obtains Node at front or back
+		const Node* front();
+		const Node* back();
 
 		// displays list
 		void display();

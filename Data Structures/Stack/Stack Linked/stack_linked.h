@@ -1,8 +1,6 @@
 #ifndef STACK_LINKED_H
 #define STACK_LINKED_H
 
-#include <iostream>
-
 class Node {
 	public:
 		int data;
@@ -31,6 +29,9 @@ class LinkedStack {
 		// size operations
 		int size();
 		bool empty();
+
+		// only for use in destructor/copy assignment operator
+		void clear();
 
 		// display stack
 		void display();

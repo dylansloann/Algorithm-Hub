@@ -1,4 +1,4 @@
-#include "stack_linked.h"
+#include "queue_linked.h"
 #include <iostream>
 
 using std::cin, std::cout, std::endl;
@@ -13,13 +13,13 @@ Node::Node(int value) : data(value), link(nullptr) {}
 
 
 
-// ================== Linked Stack ==================
+// ================== Linked Queue ==================
 
 // default constructor
-LinkedStack::LinkedStack() : head(nullptr), _size(0) {}
+LinkedQueue::LinkedQueue() : _size(0), head(nullptr), tail(nullptr) {}
 
 // copy constructor
-LinkedStack::LinkedStack(const LinkedStack& other) {
+LinkedQueue::LinkedQueue(const LinkedQueue& other) {
 	if (other.head == nullptr) { head = nullptr; _size = 0; return; }
 
 	head = new Node(other.head->data);
@@ -37,7 +37,7 @@ LinkedStack::LinkedStack(const LinkedStack& other) {
 }
 
 // copy assignment operator
-LinkedStack& LinkedStack::operator=(const LinkedStack& rhs) {
+LinkedQueue& LinkedQueue::operator=(const LinkedQueue& rhs) {
 	if (head == rhs.head && _size == rhs._size) { return *this; }
 	else if (rhs.head == nullptr) { head = nullptr; _size = 0; return *this; }
 
@@ -60,31 +60,32 @@ LinkedStack& LinkedStack::operator=(const LinkedStack& rhs) {
 }
 
 // destructor
-LinkedStack::~LinkedStack() { clear(); }
+LinkedQueue::~LinkedQueue() { clear(); }
 
-// pushing/adding item onto end of the stack
-void LinkedStack::push(int data) {
+// enqueing element to the back of the queue
+void LinkedQueue::enqueue(int data) {
 	Node* node = new Node(data);
 	
 	if (empty()) { 
 		head = node;
+		tail = node;
 		node->link = nullptr;
 		_size = 1;
 		return;
 	}
 
 	else {
-		node->link = head;
-		head = node;
+		tail->link = node;
+		tail = node;
 		_size++;
 	}
 }
 
-// popping/removing item from end of the stack
-int LinkedStack::pop() { 
+// dequeing element from front of the queue
+int LinkedQueue::dequeue() {
 	int returnVal = head->data;
 
-	if (empty()) { throw std::logic_error("Popping from empty stack"); }
+	if (empty()) { throw std::logic_error("Dequeueing from empty queue"); }
 
 	else if (_size == 1) {
 		delete head;
@@ -103,16 +104,13 @@ int LinkedStack::pop() {
 	return returnVal;
 }
 
-// returns peek/last element in the stack
-int LinkedStack::peek() { return head->data; }
+// returns length/size of the queue
+int LinkedQueue::size() { return _size; }
 
-// returns length/_size of the stack
-int LinkedStack::size() { return _size; }
+// returns if queue is empty
+bool LinkedQueue::empty() { if (_size == 0) { return true; } else { return false; } }
 
-// returns if stack is empty
-bool LinkedStack::empty() { if (_size == 0) { return true; } else { return false; } }
-
-// clears stack (only for use in destructor/copy assignment operator)
+// clears queue (only for use in destructor/copy assignment operator)
 void LinkedQueue::clear() {
 	Node* temp;
 	for (int i = 0; i < _size; i++) {
@@ -125,8 +123,8 @@ void LinkedQueue::clear() {
 	_size = 0;
 }
 
-// displays stack
-void LinkedStack::display() {
+// displays queue
+void LinkedQueue::display() {
 	Node* current = head;
 	for (int i = 0; i < _size; i++) {
 		cout << '[' << current->data << ']' << "-->";
