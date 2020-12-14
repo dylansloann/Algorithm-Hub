@@ -10,7 +10,7 @@
 
 ![Header][header-screenshot]
 
-Files with WIP at start are files that are a Work in Progress (NOT DONE BELOW). 
+Files with WIP at start are files that are a Work in Progress (NOT DONE BELOW).
 
 ## Folder Hierarchy
 ```
