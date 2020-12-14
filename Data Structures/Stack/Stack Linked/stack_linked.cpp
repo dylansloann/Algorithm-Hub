@@ -60,7 +60,17 @@ LinkedStack& LinkedStack::operator=(const LinkedStack& rhs) {
 }
 
 // destructor
-LinkedStack::~LinkedStack() { clear(); }
+LinkedStack::~LinkedStack() { 
+	Node* temp;
+	for (int i = 0; i < _size; i++) {
+		temp = head;
+		head = head->link;
+		delete temp;
+	}
+
+	head = nullptr;
+	_size = 0;
+}
 
 // pushing/adding item onto end of the stack
 void LinkedStack::push(int data) {
@@ -84,7 +94,7 @@ void LinkedStack::push(int data) {
 int LinkedStack::pop() { 
 	int returnVal = head->data;
 
-	if (empty()) { throw std::logic_error("Removing from empty LinkedStack"); }
+	if (empty()) { throw std::logic_error("Popping from empty stack"); }
 
 	else if (_size == 1) {
 		delete head;
@@ -112,23 +122,10 @@ int LinkedStack::size() { return _size; }
 // returns if stack is empty
 bool LinkedStack::empty() { if (_size == 0) { return true; } else { return false; } }
 
-// empties stack
-void LinkedStack::clear() { 
-	Node* temp;
-	for (size_t i = 0; i < _size; i++) {
-		temp = head;
-		head = head->link;
-		delete temp;
-	}
-
-	head = nullptr;
-	_size = 0;
-}
-
 // displays stack
 void LinkedStack::display() {
 	Node* current = head;
-	for (size_t i = 0; i < _size; i++) {
+	for (int i = 0; i < _size; i++) {
 		cout << '[' << current->data << ']' << "-->";
 		current = current->link;
 	}

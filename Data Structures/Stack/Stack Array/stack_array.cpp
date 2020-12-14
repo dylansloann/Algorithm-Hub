@@ -14,7 +14,7 @@ Stack::Stack(const Stack& other) {
 	length = other.length;
 	stackArray = new int[capacity];
 
-	for (size_t i = 0; i < length; i++) {
+	for (int i = 0; i < length; i++) {
 		stackArray[i] = other.stackArray[i];
 	}
 }
@@ -23,13 +23,13 @@ Stack::Stack(const Stack& other) {
 Stack& Stack::operator=(const Stack& rhs) {
 	if (stackArray == rhs.stackArray) {return *this;}
 
-	clear();
+	delete [] stackArray;
 
 	capacity = rhs.capacity;
 	length = rhs.length;
 	stackArray = new int[capacity];
 
-	for (size_t i = 0; i < length; i++) {
+	for (int i = 0; i < length; i++) {
 		stackArray[i] = rhs.stackArray[i];
 	}
 
@@ -37,13 +37,14 @@ Stack& Stack::operator=(const Stack& rhs) {
 }
 
 // destructor
-Stack::~Stack() { clear(); }
+Stack::~Stack() { delete [] stackArray; }
 
 // pushing/adding item onto end of the stack
 void Stack::push(int data) {
+	// doubles capacity if stack is full
 	if (length == capacity) {
 		int* doubledStackArray = new int[2 * capacity];
-		for (size_t i = 0; i < capacity; i++) { 
+		for (int i = 0; i < capacity; i++) { 
 			doubledStackArray[i] = stackArray[i]; 
 		}
 		delete [] stackArray;
@@ -57,7 +58,7 @@ void Stack::push(int data) {
 
 // popping/removing item from end of the stack
 int Stack::pop() { 
-	if (empty()) { throw std::logic_error("Removing from empty stack"); }
+	if (empty()) { throw std::logic_error("Popping from empty stack"); }
 	length--;
 	return stackArray[length];
 }
@@ -71,12 +72,9 @@ int Stack::size() { return length; }
 // returns if stack is empty
 bool Stack::empty() { if (length == 0) { return true; } else { return false; } }
 
-// empties stack
-void Stack::clear() { delete [] stackArray; }
-
 // displays stack
 void Stack::display() {
-	for (size_t i = 0; i < length; i++) {
+	for (int i = 0; i < length; i++) {
 		cout << stackArray[i] << " ";
 	}
 	cout << endl;

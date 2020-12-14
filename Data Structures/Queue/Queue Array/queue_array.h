@@ -1,20 +1,12 @@
-#ifndef QUEUE_LINKED_H
-#define QUEUE_LINKED_H
+#ifndef QUEUE_ARRAY_H
+#define QUEUE_ARRAY_H
 
 #include <iostream>
-
-class Node {
-	public:
-		int data;
-		Node* link;
-		// constructors
-		Node();
-		Node(int value);
-};
 
 class Queue {
 	private:
 		int* queueArray;
+		int capacity;
 		int length;
 		int front, back;
 	public:
@@ -35,3 +27,5 @@ class Queue {
 		// display queue
 		void display();
 };
+
+#endif

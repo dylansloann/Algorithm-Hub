@@ -6,25 +6,25 @@ using std::cout, std::endl;
 
 void merge(int array[], int leftEnd, int mid, int rightEnd) {
 	// new temp array sizes
-	const size_t leftLength = mid - leftEnd + 1;
-	const size_t rightLength = rightEnd - mid;
+	const int leftLength = mid - leftEnd + 1;
+	const int rightLength = rightEnd - mid;
 
 	// temp arrays
 	int leftArray[leftLength];
 	int rightArray[rightLength];
 
 	// inserting data into left and right array's
-	for (size_t i = 0; i < leftLength; i++) {
+	for (int i = 0; i < leftLength; i++) {
 		leftArray[i] = array[i + leftEnd];
 	}
-	for (size_t i = 0; i < rightLength; i++) {
+	for (int i = 0; i < rightLength; i++) {
 		rightArray[i] = array[mid + i + 1];
 	}
 
 	// iterators
-	size_t i = 0;
-	size_t j = 0;
-	size_t k = leftEnd;
+	int i = 0;
+	int j = 0;
+	int k = leftEnd;
 
 	// MERGE left and right side
 	while (i < leftLength && j < rightLength) {
@@ -68,15 +68,15 @@ void mergeSort(int array[], int leftEnd, int rightEnd) {
 
 
 
-void printArray(int array[], size_t length) {
-	for (size_t i = 0; i < length - 1; i++) {
+void printArray(int array[], int length) {
+	for (int i = 0; i < length - 1; i++) {
 		cout << array[i] << " -- ";
 	}
 	cout << array[length - 1] << endl;
 }
 
 int main() {
-	const size_t arrayLength = 10;
+	const int arrayLength = 10;
 	int array[arrayLength] = {1, 5, 3, 8, 6, 7, 9, 2, 10, 4};
 
 	int left = 0;

@@ -6,8 +6,8 @@
 class Stack {
 	private:
 		int* stackArray;
-		size_t capacity;
-		size_t length;
+		int capacity;
+		int length;
 	public:
 		// constructors/destructor
 		Stack();
@@ -23,9 +23,6 @@ class Stack {
 		// size operations
 		int size();
 		bool empty();
-
-		// clears stack
-		void clear();
 
 		// display stack
 		void display();

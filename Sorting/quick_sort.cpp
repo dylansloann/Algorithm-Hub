@@ -10,12 +10,12 @@ void swap(int array[], int firstIndex, int secondIndex) {
 	array[secondIndex] = temp;
 }
 
-int partion(int array[], size_t leftEnd, size_t rightEnd) {
+int partion(int array[], int leftEnd, int rightEnd) {
 	int pivot = array[leftEnd];
 	int swapIndex = leftEnd;
 
 	// moves all items that are less than pivot to the left
-	for (size_t i = leftEnd + 1; i <= rightEnd; i++) {
+	for (int i = leftEnd + 1; i <= rightEnd; i++) {
 		if (array[i] < pivot) {
 			swapIndex++;
 			swap(array, i, swapIndex);
@@ -40,15 +40,15 @@ void quickSort(int array[], int leftEnd, int rightEnd) {
 
 
 
-void printArray(int array[], size_t length) {
-	for (size_t i = 0; i < length - 1; i++) {
+void printArray(int array[], int length) {
+	for (int i = 0; i < length - 1; i++) {
 		cout << array[i] << " -- ";
 	}
 	cout << array[length - 1] << endl;
 }
 
 int main() {
-	const size_t arrayLength = 10;
+	const int arrayLength = 10;
 	int array[arrayLength] = {1, 5, 3, 8, 6, 7, 9, 2, 10, 4};
 
 	int left = 0;

@@ -4,14 +4,14 @@ using std::cout, std::endl;
 
 // COMPLEXITY: Time - O(n^2)
 
-void bubbleSort(int array[], size_t length) {
+void bubbleSort(int array[], int length) {
 	int swapValue = array[0];
 	bool swapPerformed = false;
 
-	for (size_t i = 0; i < length; i++) {
+	for (int i = 0; i < length; i++) {
 		// resets bool for next iteration
 		swapPerformed = false;
-		for (size_t j = 0; j < length - i - 1; j++) {
+		for (int j = 0; j < length - i - 1; j++) {
 			if (array[j] > array[j + 1]) {
 				swapValue = array[j];
 				array[j] = array[j + 1];
@@ -30,15 +30,15 @@ void bubbleSort(int array[], size_t length) {
 
 
 
-void printArray(int array[], size_t length) {
-	for (size_t i = 0; i < length - 1; i++) {
+void printArray(int array[], int length) {
+	for (int i = 0; i < length - 1; i++) {
 		cout << array[i] << " -- ";
 	}
 	cout << array[length - 1] << endl;
 }
 
 int main() {
-	const size_t arrayLength = 10;
+	const int arrayLength = 10;
 	int array[arrayLength] = {1, 5, 3, 8, 6, 7, 9, 2, 10, 4};
 
 	cout << "INTIAL ARRAY:" << endl;

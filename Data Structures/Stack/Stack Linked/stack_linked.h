@@ -15,7 +15,7 @@ class Node {
 class LinkedStack {
 	private:
 		Node* head;
-		size_t _size;
+		int _size;
 	public:
 		// constructors/destructor
 		LinkedStack();
@@ -31,9 +31,6 @@ class LinkedStack {
 		// size operations
 		int size();
 		bool empty();
-
-		// clears stack
-		void clear();
 
 		// display stack
 		void display();

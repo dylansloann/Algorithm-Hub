@@ -7,8 +7,8 @@ using std::cout, std::endl, std::string;
 
 int naiveSearch(string fullLengthString, string subString) {
 	int total = 0;
-	for (size_t i = 0; i < fullLengthString.length(); i++) {
-		for (size_t j = 0; j < subString.length(); j++) {
+	for (int i = 0; i < fullLengthString.length(); i++) {
+		for (int j = 0; j < subString.length(); j++) {
 			if (fullLengthString[i + j] != subString[j]) { break; }
 			if (j == subString.length() - 1) { total++; }
 		}

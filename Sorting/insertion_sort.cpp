@@ -4,8 +4,8 @@ using std::cout, std::endl;
 
 // COMPLEXITY: Time - O(n^2)
 
-void insertionSort(int array[], size_t length) {
-	for (size_t i = 1; i < length; i++) {
+void insertionSort(int array[], int length) {
+	for (int i = 1; i < length; i++) {
 		int current = array[i];
 		int j;
 		// iterates to shift current to correct position
@@ -29,7 +29,7 @@ void printArray(int array[], int length) {
 }
 
 int main() {
-	const size_t arrayLength = 10;
+	const int arrayLength = 10;
 	int array[arrayLength] = {4, 5, 3, 8, 6, 7, 9, 2, 10, 1};
 
 	cout << "INTIAL ARRAY:" << endl;
