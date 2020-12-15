@@ -5,7 +5,7 @@ class Stack {
 	private:
 		int* stackArray;
 		int capacity;
-		int size;
+		int _size;
 	public:
 		// constructors/destructor
 		Stack();

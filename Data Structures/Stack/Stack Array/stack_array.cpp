@@ -6,15 +6,15 @@ using std::cin, std::cout, std::endl;
 // ================== Stack ==================
 
 // default constructor
-Stack::Stack() : stackArray(new int[2]), capacity(2), size(0) {} 
+Stack::Stack() : stackArray(new int[2]), capacity(2), _size(0) {} 
 
 // copy constructor
 Stack::Stack(const Stack& other) {
 	capacity = other.capacity;
-	size = other.size;
+	_size = other._size;
 	stackArray = new int[capacity];
 
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < _size; i++) {
 		stackArray[i] = other.stackArray[i];
 	}
 }
@@ -26,10 +26,10 @@ Stack& Stack::operator=(const Stack& rhs) {
 	delete [] stackArray;
 
 	capacity = rhs.capacity;
-	size = rhs.size;
+	_size = rhs._size;
 	stackArray = new int[capacity];
 
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < _size; i++) {
 		stackArray[i] = rhs.stackArray[i];
 	}
 
@@ -42,7 +42,7 @@ Stack::~Stack() { delete [] stackArray; }
 // pushing/adding item onto end of the stack
 void Stack::push(int data) {
 	// doubles capacity if stack is full
-	if (size == capacity) {
+	if (_size == capacity) {
 		int* doubledStackArray = new int[2 * capacity];
 		for (int i = 0; i < capacity; i++) { 
 			doubledStackArray[i] = stackArray[i]; 
@@ -52,29 +52,29 @@ void Stack::push(int data) {
 		stackArray = doubledStackArray;
 	}
 
-	stackArray[size] = data;
-	size++;
+	stackArray[_size] = data;
+	_size++;
 }
 
 // popping/removing item from end of the stack
 int Stack::pop() { 
 	if (empty()) { throw std::logic_error("Popping from empty stack"); }
-	size--;
-	return stackArray[size];
+	_size--;
+	return stackArray[_size];
 }
 
 // returns peek/last element in the stack
-int Stack::peek() { return stackArray[size - 1]; }
+int Stack::peek() { return stackArray[_size - 1]; }
 
 // returns length/size of the stack
-int Stack::size() { return size; }
+int Stack::size() { return _size; }
 
 // returns if stack is empty
-bool Stack::empty() { if (size == 0) { return true; } else { return false; } }
+bool Stack::empty() { if (_size == 0) { return true; } else { return false; } }
 
 // displays stack
 void Stack::display() {
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < _size; i++) {
 		cout << stackArray[i] << " ";
 	}
 	cout << endl;

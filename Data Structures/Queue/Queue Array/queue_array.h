@@ -7,7 +7,7 @@ class Queue {
 	private:
 		int* queueArray;
 		int capacity;
-		int length;
+		int _size;
 		int front, back;
 	public:
 		// constructors/destructor
