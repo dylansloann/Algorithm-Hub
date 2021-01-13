@@ -253,7 +253,8 @@ void SinglyLinkedList::remove(int index) {
 }
 
 void SinglyLinkedList::reverse() {
-    Node* current = head;
+    tail = head;
+	Node* current = head;
     Node* previous = nullptr;
     Node* next = nullptr;
 
