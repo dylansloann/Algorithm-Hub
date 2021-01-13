@@ -282,3 +282,4 @@ void SinglyLinkedList::display() {
 	}
 	cout << endl;
 }
+
