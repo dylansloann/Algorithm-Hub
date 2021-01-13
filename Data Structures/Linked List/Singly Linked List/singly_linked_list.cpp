@@ -9,7 +9,7 @@ using std::cout, std::endl, std::string;
 Node::Node() : data(0), link(nullptr) {}
 
 // constructor with value
-Node::Node(int value) : data(value), link(nullptr) {}
+Node::Node(int value) : data(value), link(nullptr) {}s
 
 
 
