@@ -9,7 +9,6 @@ void selectionSort(int array[], int length) {
 
 	for (int i = 0; i < length; i++) {
 		minIndex = i;
-		// iterates to obtain minimum index
 		for (int j = i + 1; j < length; j++) {
 			if (array[j] < array[minIndex]) {
 				minIndex = j;

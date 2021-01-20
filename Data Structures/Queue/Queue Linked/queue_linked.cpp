@@ -5,20 +5,16 @@ using std::cin, std::cout, std::endl;
 
 // ================== Node ==================
 
-// default constructor
 Node::Node() : data(0), link(nullptr) {}
 
-// constructor with value
 Node::Node(int value) : data(value), link(nullptr) {}
 
 
 
 // ================== Linked Queue ==================
 
-// default constructor
 LinkedQueue::LinkedQueue() : _size(0), head(nullptr), tail(nullptr) {}
 
-// copy constructor
 LinkedQueue::LinkedQueue(const LinkedQueue& other) {
 	if (other.head == nullptr) { head = nullptr; _size = 0; return; }
 
@@ -36,7 +32,6 @@ LinkedQueue::LinkedQueue(const LinkedQueue& other) {
 	_size = other._size;
 }
 
-// copy assignment operator
 LinkedQueue& LinkedQueue::operator=(const LinkedQueue& rhs) {
 	if (head == rhs.head && _size == rhs._size) { return *this; }
 	else if (rhs.head == nullptr) { head = nullptr; _size = 0; return *this; }
@@ -59,10 +54,8 @@ LinkedQueue& LinkedQueue::operator=(const LinkedQueue& rhs) {
 	return *this;
 }
 
-// destructor
 LinkedQueue::~LinkedQueue() { clear(); }
 
-// enqueing element to the back of the queue
 void LinkedQueue::enqueue(int data) {
 	Node* node = new Node(data);
 	
@@ -81,7 +74,6 @@ void LinkedQueue::enqueue(int data) {
 	}
 }
 
-// dequeing element from front of the queue
 int LinkedQueue::dequeue() {
 	int returnVal = head->data;
 
@@ -104,13 +96,11 @@ int LinkedQueue::dequeue() {
 	return returnVal;
 }
 
-// returns length/size of the queue
 int LinkedQueue::size() { return _size; }
 
-// returns if queue is empty
 bool LinkedQueue::empty() { if (_size == 0) { return true; } else { return false; } }
 
-// clears queue (only for use in destructor/copy assignment operator)
+// only for use in destructor/copy assignment operator
 void LinkedQueue::clear() {
 	Node* temp;
 	for (int i = 0; i < _size; i++) {
@@ -123,7 +113,6 @@ void LinkedQueue::clear() {
 	_size = 0;
 }
 
-// displays queue
 void LinkedQueue::display() {
 	Node* current = head;
 	for (int i = 0; i < _size; i++) {

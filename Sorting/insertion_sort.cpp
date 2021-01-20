@@ -12,7 +12,6 @@ void insertionSort(int array[], int length) {
 		for (j = i - 1; (array[j] > current) && (j >= 0); j--) {
 			array[j + 1] = array[j];
 		}
-		// replaces current in the array
 		array[j + 1] = current;
 	}
 }

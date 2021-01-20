@@ -5,10 +5,8 @@ using std::cin, std::cout, std::endl;
 
 // ================== Queue ==================
 
-// default constructor
 Queue::Queue() : queueArray(new int[2]), capacity(2), _size(0), front(-1), back(-1) {}
 
-// copy constructor
 Queue::Queue(const Queue& other) {
 	capacity = other.capacity;
 	_size = other._size;
@@ -21,7 +19,6 @@ Queue::Queue(const Queue& other) {
 	}
 }
 
-// copy assignment operator
 Queue& Queue::operator=(const Queue& rhs) {
 	if (queueArray == rhs.queueArray) {return *this;}
 
@@ -40,10 +37,8 @@ Queue& Queue::operator=(const Queue& rhs) {
 	return *this;
 }
 
-// destructor
 Queue::~Queue() { delete [] queueArray; }
 
-// enqueing element to the back of the queue
 void Queue::enqueue(int data) {
 	if (_size == capacity) {
 		int* doubledQueueArray = new int[2 * capacity];
@@ -65,16 +60,13 @@ void Queue::enqueue(int data) {
 	}
 }
 
-// dequeing element from front of the queue
 int Queue::dequeue() {
 	if (empty()) { throw std::logic_error("Dequeueing from empty queue"); }
 
 	int returnValue = queueArray[front];
 	
-	// increament front index
 	front++;
 
-	// if queue only contains one element
 	if (_size == 1) {
 		front = -1;
 		back = -1;
@@ -84,7 +76,6 @@ int Queue::dequeue() {
 	return returnValue;
 }
 
-// returns length/size of the queue
 int Queue::size() { return _size; }
 
 // returns if queue is empty

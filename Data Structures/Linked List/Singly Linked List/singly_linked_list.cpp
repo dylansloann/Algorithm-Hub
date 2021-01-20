@@ -5,30 +5,23 @@ using std::cout, std::endl, std::string;
 
 // ================== Node ==================
 
-// default constructor
 Node::Node() : data(0), link(nullptr) {}
 
-// constructor with value
 Node::Node(int value) : data(value), link(nullptr) {}s
 
 
 
 // ================== Linked List ==================
 
-// default constructor
 SinglyLinkedList::SinglyLinkedList() : head(nullptr), tail(nullptr),  _size(0) {}
 
-// copy constructor
 SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other) {
-	// if other list is empty
 	if (other.head == nullptr) { head = nullptr; tail = nullptr; _size = 0; return; }
 
-	// reasigns new nodes, iterators
 	head = new Node(other.head->data);
 	Node* current = head;
 	Node* tempCurrent = other.head;
 
-	// iterates till other reaches tail
 	while (tempCurrent->link != nullptr) {
 		Node* node = new Node(tempCurrent->link->data);
 		current->link = (node);
@@ -36,26 +29,20 @@ SinglyLinkedList::SinglyLinkedList(const SinglyLinkedList& other) {
 		tempCurrent = tempCurrent->link;
 	}
 	
-	// updates _size and tail
 	_size = other._size;
 	tail = current;
 }
 
-// copy assignment operator
 SinglyLinkedList& SinglyLinkedList::operator=(const SinglyLinkedList& rhs) {
-	// checks for self equal/empty
 	if (head == rhs.head && tail == rhs.tail && _size == rhs._size) { return *this; }
 	else if (rhs.head == nullptr) { head = nullptr; tail = nullptr; _size = 0; return *this; }
 
-	// clears lhs list
 	clear();
 
-	// reasigns new nodes, iterators
 	head = new Node(rhs.head->data);
 	Node* current = head;
 	Node* tempCurrent = rhs.head;
 
-	// iterates till rhs reaches tail
 	while (tempCurrent->link != nullptr) {
 		Node* node = new Node(tempCurrent->link->data);
 		current->link = (node);
@@ -63,14 +50,12 @@ SinglyLinkedList& SinglyLinkedList::operator=(const SinglyLinkedList& rhs) {
 		tempCurrent = tempCurrent->link;
 	}
 	
-	// updates _size and tail
 	_size = rhs._size;
 	tail = current;
 
 	return *this;
 }
 
-// destructor
 SinglyLinkedList::~SinglyLinkedList() { clear(); }
 
 // checking for empty
@@ -204,7 +189,6 @@ void SinglyLinkedList::remove_front() {
 void SinglyLinkedList::remove_back() {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
-	// if list contains single node
 	else if (_size == 1) { remove_single(); return; }
 
 	Node* current = head;
@@ -223,7 +207,6 @@ void SinglyLinkedList::remove_back() {
 void SinglyLinkedList::remove(int index) {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
-	// if list contains single node
 	else if (_size == 1 && index == 0) { remove_single(); return; }
 
 	// if value is at front

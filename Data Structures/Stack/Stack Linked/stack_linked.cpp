@@ -5,20 +5,16 @@ using std::cin, std::cout, std::endl;
 
 // ================== Node ==================
 
-// default constructor
 Node::Node() : data(0), link(nullptr) {}
 
-// constructor with value
 Node::Node(int value) : data(value), link(nullptr) {}
 
 
 
 // ================== Linked Stack ==================
 
-// default constructor
 LinkedStack::LinkedStack() : head(nullptr), _size(0) {}
 
-// copy constructor
 LinkedStack::LinkedStack(const LinkedStack& other) {
 	if (other.head == nullptr) { head = nullptr; _size = 0; return; }
 
@@ -36,7 +32,6 @@ LinkedStack::LinkedStack(const LinkedStack& other) {
 	_size = other._size;
 }
 
-// copy assignment operator
 LinkedStack& LinkedStack::operator=(const LinkedStack& rhs) {
 	if (head == rhs.head && _size == rhs._size) { return *this; }
 	else if (rhs.head == nullptr) { head = nullptr; _size = 0; return *this; }
@@ -59,10 +54,8 @@ LinkedStack& LinkedStack::operator=(const LinkedStack& rhs) {
 	return *this;
 }
 
-// destructor
 LinkedStack::~LinkedStack() { clear(); }
 
-// pushing/adding item onto end of the stack
 void LinkedStack::push(int data) {
 	Node* node = new Node(data);
 	
@@ -80,7 +73,6 @@ void LinkedStack::push(int data) {
 	}
 }
 
-// popping/removing item from end of the stack
 int LinkedStack::pop() { 
 	int returnVal = head->data;
 
@@ -103,16 +95,13 @@ int LinkedStack::pop() {
 	return returnVal;
 }
 
-// returns peek/last element in the stack
 int LinkedStack::peek() { return head->data; }
 
-// returns length/_size of the stack
 int LinkedStack::size() { return _size; }
 
-// returns if stack is empty
 bool LinkedStack::empty() { if (_size == 0) { return true; } else { return false; } }
 
-// clears stack (only for use in destructor/copy assignment operator)
+// only for use in destructor/copy assignment operator
 void LinkedQueue::clear() {
 	Node* temp;
 	for (int i = 0; i < _size; i++) {
@@ -125,7 +114,6 @@ void LinkedQueue::clear() {
 	_size = 0;
 }
 
-// displays stack
 void LinkedStack::display() {
 	Node* current = head;
 	for (int i = 0; i < _size; i++) {

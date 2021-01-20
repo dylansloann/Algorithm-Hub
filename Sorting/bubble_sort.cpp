@@ -9,7 +9,6 @@ void bubbleSort(int array[], int length) {
 	bool swapPerformed = false;
 
 	for (int i = 0; i < length; i++) {
-		// resets bool for next iteration
 		swapPerformed = false;
 		for (int j = 0; j < length - i - 1; j++) {
 			if (array[j] > array[j + 1]) {
