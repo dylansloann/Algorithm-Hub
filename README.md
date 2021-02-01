@@ -34,9 +34,6 @@ Algorithm Hub
 │   │	    ├── singly_linked_list.cpp
 │   │	    └── singly_linked_list.h
 │   ├── Queue                          # queue array/linked-list
-│   │   ├── Priority Queue
-│   │   │   ├── priority_queue.cpp
-│   │   │   └── priority_queue.h
 │   │	├── Queue Array
 │   │	│   ├── queue_array.cpp
 │   │	│   └── queue_array.h
@@ -65,24 +62,19 @@ Algorithm Hub
 │   	    └── trie.h
 ├── Graph Traversal                    # graph traversal algorithms
 │   ├── a_star.cpp
-│   ├── bfs_graph.cpp
-│   ├── dfs_graph.cpp
 │   └── dijkstra.cpp
 ├── Seaching                           # sorting algorithms
 │   ├── binary_search.cpp
 │   ├── linear_search.cpp
 │   └── naive_string_search.cpp
-├── Sorting                            # searching algorithms
-│   ├── bubble_sort.cpp
-│   ├── heap_sort.cpp
-│   ├── inseration_sort.cpp
-│   ├── merge_sort.cpp
-│   ├── quick_sort.cpp
-│   ├── radix_sort.cpp
-│   └── selection_sort.cpp
-└── Tree Traversal                     # tree traversal algorithms
-    ├── bfs_tree.cpp
-    └── dfs_tree.cpp
+└── Sorting                            # searching algorithms
+    ├── bubble_sort.cpp
+    ├── heap_sort.cpp
+    ├── inseration_sort.cpp
+    ├── merge_sort.cpp
+    ├── quick_sort.cpp
+    ├── radix_sort.cpp
+    └── selection_sort.cpp
 ```
 
 [header-screenshot]: header.jpg
