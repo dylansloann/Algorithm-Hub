@@ -1,7 +1,3 @@
-#include <iostream>
-
-using std::cout, std::endl;
-
 struct ListNode {
     int val;
     ListNode *next;
