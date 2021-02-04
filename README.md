@@ -15,6 +15,9 @@ Files with WIP at start are files that are a Work in Progress (NOT DONE BELOW).
 ## Folder Hierarchy
 ```
 Algorithm Hub
+├── Coding Questions
+│   ├──add_two_numbers.cpp
+│   └──two_sum.cpp
 ├── Data Structures                    # implementation of common data structures
 │   ├── Graph                          # graph
 │   │	├── Graph
