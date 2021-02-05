@@ -20,12 +20,8 @@ Algorithm Hub
 │   └──two_sum.cpp
 ├── Data Structures                    # implementation of common data structures
 │   ├── Graph                          # graph
-│   │	├── Graph
-│   │	│   ├── graph.cpp
-│   │	│   └── graph.h
-│   │	└── Weighted Graph
-│   │	    ├── weighted_graph.cpp
-│   │	    └── weighted_graph.h
+│   │   ├── graph.cpp
+│   │   └── graph.h
 │   ├── Hash Table
 │   │   ├── hash_table.cpp
 │   │   └── hash_table.h
