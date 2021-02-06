@@ -33,8 +33,6 @@ int HashTable::get(int key) {
 	return table[hashValue]->value;
 }
 
- 
-
 void HashTable::set(int key, int value) {
     int hashValue = hash(key);
     while (table[hashValue] != nullptr && table[hashValue]->key != key) {
