@@ -5,7 +5,7 @@
 
 using std::cout, std::endl, std::vector, std::string;
 
-// COMPLEXITY: Time - O(length of longest digit * amount of numbers)
+// COMPLEXITY: Time - O(max digits (n * base))
 
 int getDigitAtIndex(int number, int index) {
 	int digit = floor(abs(number) / pow(10, index));
