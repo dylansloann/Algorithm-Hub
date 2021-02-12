@@ -49,9 +49,6 @@ Algorithm Hub
 │   	├── Binary Search Tree
 │   	│   ├── BST.cpp
 │   	│   └── BST.h
-│   	├── Binary Tree
-│   	│   ├── binary_tree.cpp
-│   	│   └── binary_tree.h
 │   	├── Heap
 │   	│   ├── heap.cpp
 │   	│   └── heap.h
