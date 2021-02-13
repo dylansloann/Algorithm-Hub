@@ -15,8 +15,7 @@ class BinarySearchTree {
         Node* root;
     public:
         BinarySearchTree();
-        BinarySearchTree(std::string word);
-        BinarySearchTree(const BinarySearchTree &rhs);
+        BinarySearchTree(int data);
         ~BinarySearchTree();
 
         void insert(int n);
@@ -28,6 +27,8 @@ class BinarySearchTree {
 
         int height(const Node* node) const;
         int depth(const Node* node) const;
+
+        void clear();
 
         std::string inorder() const;
         std::string preorder() const;
