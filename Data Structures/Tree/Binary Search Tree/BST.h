@@ -29,9 +29,6 @@ class BinarySearchTree {
         std::string inorder() const;
         std::string preorder() const;
         std::string postorder() const;
-
-        bool operator==(const BinarySearchTree &other) const;
-        bool operator!=(const BinarySearchTree &other) const;
 };
 
 #endif
