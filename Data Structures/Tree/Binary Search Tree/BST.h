@@ -20,11 +20,11 @@ class BinarySearchTree {
         void remove(int n);
         bool exists(int n) const;
 
-        int findMin();
-        int findMax();
+        int findMin() const;
+        int findMax() const;
 
-        int height(const Node* node);
-        int depth(const Node* node);
+        int height(const Node* node) const;
+        int depth(const Node* node) const;
 
         std::string inorder() const;
         std::string preorder() const;
