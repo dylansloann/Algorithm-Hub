@@ -1,6 +1,7 @@
 #include "singly_linked_list.h"
 #include <iostream>
 #include <string>
+
 using std::cout, std::endl, std::string;
 
 // ================== Node ==================
@@ -58,16 +59,13 @@ SinglyLinkedList& SinglyLinkedList::operator=(const SinglyLinkedList& rhs) {
 
 SinglyLinkedList::~SinglyLinkedList() { clear(); }
 
-// checking for empty
 bool SinglyLinkedList::empty() { 
 	if (_size == 0) { return true; }
 	else { return false; }
 }
 
-// obtaining _size
 int SinglyLinkedList::size() { return _size; }
 
-// clears list of all nodes
 void SinglyLinkedList::clear() {
 	Node* temp;
 	for (int i = 0; i < _size; i++) {
@@ -98,7 +96,6 @@ void SinglyLinkedList::remove_single() {
 	_size = 0;
 }
 
-// inserting at front
 void SinglyLinkedList::push_front(int value) {
 	Node* node = new Node(value);
 
@@ -111,7 +108,6 @@ void SinglyLinkedList::push_front(int value) {
 	}
 }
 
-// inserting at back
 void SinglyLinkedList::push_back(int value) {
 	Node* node = new Node(value);
 
@@ -124,7 +120,6 @@ void SinglyLinkedList::push_back(int value) {
 	}
 }
 
-// inserting at index
 void SinglyLinkedList::insert(int value, int index) {
 	// error checking
 	if (index > _size) { throw std::invalid_argument("Index too large."); }
@@ -133,7 +128,6 @@ void SinglyLinkedList::insert(int value, int index) {
 	else if (index == 0) { push_front(value); return; }
 	else if (index == _size) { push_back(value); return; }
 
-	// creating node
 	Node* node = new Node(value);
 
 	if (empty()) { create_single(node); }
@@ -154,7 +148,6 @@ void SinglyLinkedList::insert(int value, int index) {
 	}
 }
 
-// determines if list contains value
 bool SinglyLinkedList::contains(int value) {
 	Node* current = head;
 	for (int i = 0; i < _size; i++) {
@@ -168,9 +161,7 @@ bool SinglyLinkedList::contains(int value) {
 	return false;
 }
 
-// removing at front
 void SinglyLinkedList::remove_front() {
-	// pre empty list
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
 	// if list contains single node
@@ -185,7 +176,6 @@ void SinglyLinkedList::remove_front() {
 	}
 }
 
-// removing at back
 void SinglyLinkedList::remove_back() {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
@@ -203,7 +193,6 @@ void SinglyLinkedList::remove_back() {
 	_size--;
 }
 
-// removing index in middle
 void SinglyLinkedList::remove(int index) {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
@@ -250,13 +239,10 @@ void SinglyLinkedList::reverse() {
     head = previous;
 }
 
-// obtains first node
 const Node* SinglyLinkedList::front() { return head; }
 
-// obtains last node
 const Node* SinglyLinkedList::back() { return tail; }
 
-// displays list with values and links
 void SinglyLinkedList::display() {
 	Node* current = head;
 	for (int i = 0; i < _size; i++) {

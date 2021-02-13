@@ -5,7 +5,6 @@ class Node {
 	public:
 		int data;
 		Node* link;
-		// constructors
 		Node();
 		Node(int value);
 };
@@ -16,17 +15,14 @@ class SinglyLinkedList {
 		Node* tail;
 		int _size;
 	public:
-		// constructors/destructor
 		SinglyLinkedList();
 		SinglyLinkedList(const SinglyLinkedList& other);
 		SinglyLinkedList& operator=(const SinglyLinkedList& rhs);
 		~SinglyLinkedList();
 
-		// checking and getting size
 		bool empty();
 		int size();
 
-		// clears list of all nodes
 		void clear();
 
 		// single node conditions
@@ -44,14 +40,11 @@ class SinglyLinkedList {
 		void remove_back();
 		void remove(int index);
 
-		// reversing the list
 		void reverse();
 
-		// obtains Node at front or back
 		const Node* front();
 		const Node* back();
 
-		// displays list
 		void display();
 };
 
