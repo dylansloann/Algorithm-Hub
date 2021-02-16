@@ -64,7 +64,7 @@ Algorithm Hub
 │   └── naive_string_search.cpp
 └── Sorting                            # searching algorithms
     ├── bubble_sort.cpp
-    ├── heap_sort.cpp
+    ├── counting_sort.cpp
     ├── inseration_sort.cpp
     ├── merge_sort.cpp
     ├── quick_sort.cpp

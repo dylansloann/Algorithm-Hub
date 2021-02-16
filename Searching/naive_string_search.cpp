@@ -1,11 +1,8 @@
-#include <iostream>
 #include <string>
-
-using std::cout, std::endl, std::string;
 
 // COMPLEXITY: Time - O(fullLengthString * subString)
 
-int naiveSearch(string fullLengthString, string subString) {
+int naiveSearch(std::string fullLengthString, std::string subString) {
 	int total = 0;
 	for (int i = 0; i < fullLengthString.length(); i++) {
 		for (int j = 0; j < subString.length(); j++) {
@@ -14,15 +11,4 @@ int naiveSearch(string fullLengthString, string subString) {
 		}
 	}
 	return total;
-}
-
-
-
-
-
-int main() {
-	string sub = "hello";
-	string fullLength = "I am having a great day, hello world, hello";
-
-	cout << naiveSearch(fullLength, sub) << endl;
 }

@@ -1,70 +1,33 @@
-#include <iostream>
 #include <math.h>
-#include <string>
-#include <vector>
 
-using std::cout, std::endl, std::vector, std::string;
+// COMPLEXITY: Time - O(max digits (n + base))
 
-// COMPLEXITY: Time - O(max digits (n * base))
+const int base = 10;
 
 int getDigitAtIndex(int number, int index) {
-	int digit = floor(abs(number) / pow(10, index));
-	return digit % 10;
+	int digit = number / pow(base, index);
+    return digit % base;
 }
 
-int largestDigitAmount(int array[], int length) {
-	unsigned int max = 0;
-	for (int i = 0; i < length; i++) {
-		string digits = std::to_string(array[i]);
-		if (max < digits.length()) { max = digits.length(); }
-	}
-	return max;
+void radixSort(int* arr, int n, int d) {
+    int* output = new int[n];
+    int* count = new int[base + 1];
+
+    int i, j;
+    for (int k = 0; k < d; k++) {
+        for (i = 0; i <= base; i++) count[i] = 0;
+        for (i = 0; i < n; i++) count[getDigitAtIndex(arr[i], k)]++;
+        for (i = 1; i <= base; i++) count[i] += count[i - 1];
+
+        for (j = n - 1; j >= 0; j--) {
+            i = count[getDigitAtIndex(arr[j], k)] - 1;
+            output[i] = arr[j];
+            count[getDigitAtIndex(arr[j], k)]--;
+        }
+
+        for (i = 0; i < n; i++) arr[i] = output[i];
+    }
+
+    delete[] output;
+    delete[] count;
 }
-
-void twoDimensionalVectorToArray(vector<std::vector<int>> vec, int arr[]) {
-	int* iterator = arr;
-	for (int i = 0; i < vec.size(); i++) {
-		std::copy(vec[i].begin(), vec[i].end(), iterator);
-		iterator += vec[i].size();
-	}
-}
-
-void radixSort(int array[], int length) {
-	int maxDigitAmount = largestDigitAmount(array, length);
-	for (int i = 0; i < maxDigitAmount; i++) {
-		// 2d vector for storing array items in correct "bucket"
-		vector<vector<int>> digitBuckets;
-		digitBuckets.resize(10);
-
-		for (int j = 0; j < length; j++) {
-			// calculates digit for correct indexing of digitBuckets
-			int digit = getDigitAtIndex(array[j], i);
-			digitBuckets[digit].push_back(array[j]);
-		}
-		/* updates our array with values correlating to to the 
-		   item order and bucket order of digitBuckets */
-		twoDimensionalVectorToArray(digitBuckets, array);
-	}
-}
-
-
-
-
-
-void printArray(int array[], int length) {
-	for (int i = 0; i < length - 1; i++) {
-		cout << array[i] << " -- ";
-	}
-	cout << array[length - 1] << endl;
-}
-
-int main() {
-	const int arrayLength = 10;
-	int array[arrayLength] = {1, 5, 3, 8, 6, 7, 9, 2, 10, 4};
-
-	cout << "INTIAL ARRAY:" << endl;
-	printArray(array, arrayLength);
-	cout << endl << "SORTED ARRAY:" << endl;
-	radixSort(array, arrayLength);
-	printArray(array, arrayLength);
-}	
