@@ -31,7 +31,7 @@
 |------|------|
 |Hash Table|[hash_table.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
 |Singly Linked List|[singly_linked_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/singly_linked_list.h)|
-|Doubly Linked List|[doubly_linked_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/WIP_doubly_linked.h)|
+|Doubly Linked List|[doubly_linked_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/doubly_linked_list.h)|
 |Graph|[graph.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Graph/WIP_graph.h)|
 |Stack Linked List|[stack_linked.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Stack/stack_linked.h)|
 |Stack Array|[stack_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Stack/stack_array.h)|

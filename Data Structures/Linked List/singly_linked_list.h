@@ -100,8 +100,7 @@ SinglyLinkedList<T>::~SinglyLinkedList() { clear(); }
 
 template <typename T>
 bool SinglyLinkedList<T>::empty() { 
-	if (_size == 0) 
-		return true;
+	if (_size == 0) return true;
 	return false;
 }
 
@@ -110,11 +109,11 @@ int SinglyLinkedList<T>::size() { return _size; }
 
 template <typename T>
 void SinglyLinkedList<T>::clear() {
-	Node<T>* temp;
+	Node<T>* tmp;
 	for (int i = 0; i < _size; i++) {
-		temp = head;
+		tmp = head;
 		head = head->link;
-		delete temp;
+		delete tmp;
 	}
 
 	head = nullptr;
@@ -213,10 +212,10 @@ void SinglyLinkedList<T>::remove_front() {
 	else if (_size == 1) { remove_single(); }
 
 	else {
-		Node<T>* temp;
-		temp = head;
+		Node<T>* tmp;
+		tmp = head;
 		head = head->link;
-		delete temp;
+		delete tmp;
 		_size--;
 	}
 }
