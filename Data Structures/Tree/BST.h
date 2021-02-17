@@ -6,8 +6,8 @@ struct Node {
     Node* left;
     Node* right;
 
-    Node();
-    Node(int data);
+    Node() : data(0), left(nullptr), right(nullptr) {}
+    Node(int data) : data(data), left(nullptr), right(nullptr) {}
 };
 
 class BinarySearchTree {
@@ -34,5 +34,11 @@ class BinarySearchTree {
         std::string preorder() const;
         std::string postorder() const;
 };
+
+BinarySearchTree::BinarySearchTree() : root(nullptr) {}
+
+BinarySearchTree::BinarySearchTree(int data) : root(new Node(data)) {}
+
+~BinarySearchTree::BinarySearchTree() { clear(); }
 
 #endif

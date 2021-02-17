@@ -7,14 +7,14 @@ class Node {
 		T data;
 		Node* link;
 		Node() : data(0), link(nullptr) {}
-		Node(T data) : data(value), link(nullptr) {}
+		Node(T data) : data(data), link(nullptr) {}
 };
 
 template <typename T>
 class SinglyLinkedList {
 	private:
-		Node* head;
-		Node* tail;
+		Node<T>* head;
+		Node<T>* tail;
 		int _size;
 	public:
 		SinglyLinkedList();
@@ -28,7 +28,7 @@ class SinglyLinkedList {
 		void clear();
 
 		// single node conditions
-		void create_single(Node* node);
+		void create_single(Node<T>* node);
 		void remove_single();
 
 		// inserting a node
@@ -44,8 +44,8 @@ class SinglyLinkedList {
 
 		void reverse();
 
-		const Node* front();
-		const Node* back();
+		const Node<T>* front();
+		const Node<T>* back();
 
 		void display();
 };
@@ -55,14 +55,14 @@ template <typename T>
 SinglyLinkedList<T>::SinglyLinkedList() : head(nullptr), tail(nullptr),  _size(0) {}
 
 template <typename T>
-SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList<T>& other) : head(new Node(other.head->data)), tail(nullptr),  _size(other._size) {
+SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList<T>& other) : head(new Node<T>(other.head->data)), tail(nullptr),  _size(other._size) {
 	if (other.head == nullptr) { head = nullptr; tail = nullptr; _size = 0; return; }
 
-	Node* current = head;
-	Node* tmp = other.head;
+	Node<T>* current = head;
+	Node<T>* tmp = other.head;
 
 	while (tmp->link != nullptr) {
-		Node* node = new Node(tmp->link->data);
+		Node<T>* node = new Node<T>(tmp->link->data);
 		current->link = (node);
 		current = current->link;
 		tmp = tmp->link;
@@ -78,12 +78,12 @@ SinglyLinkedList<T>& SinglyLinkedList<T>::operator=(const SinglyLinkedList<T>& r
 
 	clear();
 
-	head = new Node(rhs.head->data);
-	Node* current = head;
-	Node* tmp = rhs.head;
+	head = new Node<T>(rhs.head->data);
+	Node<T>* current = head;
+	Node<T>* tmp = rhs.head;
 
 	while (tmp->link != nullptr) {
-		Node* node = new Node(tmp->link->data);
+		Node<T>* node = new Node<T>(tmp->link->data);
 		current->link = (node);
 		current = current->link;
 		tmp = tmp->link;
@@ -100,8 +100,9 @@ SinglyLinkedList<T>::~SinglyLinkedList() { clear(); }
 
 template <typename T>
 bool SinglyLinkedList<T>::empty() { 
-	if (_size == 0) { return true; }
-	else { return false; }
+	if (_size == 0) 
+		return true;
+	return false;
 }
 
 template <typename T>
@@ -109,7 +110,7 @@ int SinglyLinkedList<T>::size() { return _size; }
 
 template <typename T>
 void SinglyLinkedList<T>::clear() {
-	Node* temp;
+	Node<T>* temp;
 	for (int i = 0; i < _size; i++) {
 		temp = head;
 		head = head->link;
@@ -122,7 +123,7 @@ void SinglyLinkedList<T>::clear() {
 }
 
 template <typename T>
-void SinglyLinkedList<T>::create_single(Node* node) {
+void SinglyLinkedList<T>::create_single(Node<T>* node) {
 	head = node;
 	tail = node;
 	node->link = nullptr;
@@ -138,8 +139,8 @@ void SinglyLinkedList<T>::remove_single() {
 }
 
 template <typename T>
-void SinglyLinkedList<T>::push_front(int value) {
-	Node* node = new Node(value);
+void SinglyLinkedList<T>::push_front(T value) {
+	Node<T>* node = new Node<T>(value);
 
 	if (empty()) { create_single(node); }
 
@@ -151,8 +152,8 @@ void SinglyLinkedList<T>::push_front(int value) {
 }
 
 template <typename T>
-void SinglyLinkedList<T>::push_back(int value) {
-	Node* node = new Node(value);
+void SinglyLinkedList<T>::push_back(T value) {
+	Node<T>* node = new Node<T>(value);
 
 	if (empty()) { create_single(node); }
 
@@ -164,20 +165,20 @@ void SinglyLinkedList<T>::push_back(int value) {
 }
 
 template <typename T>
-void SinglyLinkedList<T>::insert(int value, int index) {
+void SinglyLinkedList<T>::insert(T value, int index) {
 	// error checking
 	if (index > _size) { throw std::invalid_argument("Index too large."); }
 
 	else if (index == 0) { push_front(value); return; }
 	else if (index == _size) { push_back(value); return; }
 
-	Node* node = new Node(value);
+	Node<T>* node = new Node<T>(value);
 
 	if (empty()) { create_single(node); }
 	
 	else {
-		Node* current = head;
-		Node* previous = head;
+		Node<T>* current = head;
+		Node<T>* previous = head;
 		for (int i = 0; i < _size; i++) {
 			if (i == index) {
 				previous->link = node;
@@ -192,8 +193,8 @@ void SinglyLinkedList<T>::insert(int value, int index) {
 }
 
 template <typename T>
-bool SinglyLinkedList<T>::contains(int value) {
-	Node* current = head;
+bool SinglyLinkedList<T>::contains(T value) {
+	Node<T>* current = head;
 	for (int i = 0; i < _size; i++) {
 		if (current->data == value) {
 			return true;
@@ -212,7 +213,7 @@ void SinglyLinkedList<T>::remove_front() {
 	else if (_size == 1) { remove_single(); }
 
 	else {
-		Node* temp;
+		Node<T>* temp;
 		temp = head;
 		head = head->link;
 		delete temp;
@@ -226,8 +227,8 @@ void SinglyLinkedList<T>::remove_back() {
 
 	else if (_size == 1) { remove_single(); return; }
 
-	Node* current = head;
-	Node* previous = head;
+	Node<T>* current = head;
+	Node<T>* previous = head;
 	while (current != nullptr) {
 		previous = current;
 		current = current->link;
@@ -245,8 +246,8 @@ void SinglyLinkedList<T>::remove(int index) {
 	else if (_size == 1 && index == 0) { remove_single(); return; }
 	else if (index == 0) { remove_front(); return; }
 
-	Node* current = head;
-	Node* previous = head;
+	Node<T>* current = head;
+	Node<T>* previous = head;
 	for (int i = 0; i < index; i++) {
 		previous = current;
 		current = current->link;
@@ -271,9 +272,9 @@ void SinglyLinkedList<T>::remove(int index) {
 template <typename T>
 void SinglyLinkedList<T>::reverse() {
     tail = head;
-	Node* current = head;
-    Node* previous = nullptr;
-    Node* next = nullptr;
+	Node<T>* current = head;
+    Node<T>* previous = nullptr;
+    Node<T>* next = nullptr;
 
     while (current != nullptr) {
         next = current->link;
@@ -285,19 +286,19 @@ void SinglyLinkedList<T>::reverse() {
 }
 
 template <typename T>
-const Node* SinglyLinkedList<T>::front() { return head; }
+const Node<T>* SinglyLinkedList<T>::front() { return head; }
 
 template <typename T>
-const Node* SinglyLinkedList<T>::back() { return tail; }
+const Node<T>* SinglyLinkedList<T>::back() { return tail; }
 
 template <typename T>
 void SinglyLinkedList<T>::display() {
-	Node* current = head;
+	Node<T>* current = head;
 	for (int i = 0; i < _size; i++) {
-		cout << '[' << current->data << ']' << "-->";
+		std::cout << '[' << current->data << ']' << "-->";
 		current = current->link;
 	}
-	cout << endl;
+	std::cout << std::endl;
 }
 
 #endif
