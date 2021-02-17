@@ -53,18 +53,18 @@ Algorithm Hub
 │   ├── Hash Table
 │   │   └── hash_table.h
 │   ├── Linked List                    # singly/doubly linked list
-│   │	  ├── doubly_linked_list.h
+│   │   ├── doubly_linked_list.h
 │   │   └── singly_linked_list.h
 │   ├── Queue                          # queue array/linked-list
-│   │	  ├── queue_array.h
-│   │	  └── queue_linked.h
+│   │   ├── queue_array.h
+│   │   └── queue_linked.h
 │   ├── Stack                          # stack array/linked-list
 │   │   ├── stack_array.h
 │   │	  └── stack_linked.h
 │   └── Tree                           # BST/binary tree/heap/trie
 │       ├── BST.h
 │       ├── heap.h
-│   	  └── trie.h
+│       └── trie.h
 ├── Seaching                           # sorting algorithms
 │   ├── binary_search.cpp
 │   ├── linear_search.cpp
