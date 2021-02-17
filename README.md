@@ -55,8 +55,7 @@ Algorithm Hub
 │   	└── Trie
 │   	    ├── trie.cpp
 │   	    └── trie.h
-├── Graph Traversal                    # graph traversal algorithms
-│   ├── a_star.cpp
+├── Shortest Path                   # shortest path algorithms
 │   └── dijkstra.cpp
 ├── Seaching                           # sorting algorithms
 │   ├── binary_search.cpp
