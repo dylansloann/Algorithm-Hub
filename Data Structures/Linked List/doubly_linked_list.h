@@ -6,7 +6,7 @@ class Node {
 	public:
 		T data;
 		Node* next;
-        Node* prev;
+		Node* prev;
 		Node() : data(0), next(nullptr), prev(nullptr) {}
 		Node(T data) : data(data), next(nullptr), prev(nullptr) {}
 };
@@ -23,24 +23,24 @@ class DoublyLinkedList {
 		DoublyLinkedList& operator=(const DoublyLinkedList& rhs);
 		~DoublyLinkedList();
 
-    	void push_front(T value);
+		void push_front(T value);
 		void push_back(T value);
 		void insertBefore(T value, Node<T>* node);
-        void insertAfter(T value, Node<T>* node);
-        void insert(T value, int index);
+		void insertAfter(T value, Node<T>* node);
+		void insert(T value, int index);
 
-    	void remove_front();
+		void remove_front();
 		void remove_back();
-        void removeBefore(T value, Node<T>* node);
-        void removeAfter(T value, Node<T>* node);
+		void removeBefore(T value, Node<T>* node);
+		void removeAfter(T value, Node<T>* node);
 		void remove(int index);
 
 
-    	bool empty();
+		bool empty();
 		int size();
 
 		void clear();
-        void display();
+		void display();
 };
 
 
@@ -101,16 +101,16 @@ void DoublyLinkedList<T>::push_front(T value) {
     Node<T>* node = new Node<T>(value);
 
     if ( empty() ) {
-        head = node;
+		head = node;
 		tail = node;
-        node->next = nullptr;
-        node->prev = nullptr;
-        _size = 1;
+		node->next = nullptr;
+		node->prev = nullptr;
+		_size = 1;
     }
 
     else { 
-        head->prev = node;
-        node->next = head;
+		head->prev = node;
+		node->next = head;
 		head = node;
 		_size++;
     }
@@ -120,20 +120,20 @@ template <typename T>
 void DoublyLinkedList<T>::push_back(T value) {
 	Node<T>* node = new Node<T>(value);
 
-    if ( empty() ) {
-        head = node;
+	if ( empty() ) {
+		head = node;
 		tail = node;
-        node->next = nullptr;
-        node->prev = nullptr;
-        _size = 1;
-    }
+		node->next = nullptr;
+		node->prev = nullptr;
+		_size = 1;
+	}
 
-    else { 
-        node->prev = tail;
+	else { 
+		node->prev = tail;
 		tail->next = node;
 		tail = node;
 		_size++;
-    }
+	}
 }
 
 template <typename T>
@@ -172,9 +172,9 @@ void DoublyLinkedList<T>::insert(T value, int index) {
 	if ( empty() ) {        
 		head = node;
 		tail = node;
-        node->next = nullptr;
-        node->prev = nullptr;
-        _size = 1; 
+		node->next = nullptr;
+		node->prev = nullptr;
+		_size = 1; 
 	}
 	
 	else {
