@@ -55,12 +55,12 @@ Algorithm Hub
 │   	└── Trie
 │   	    ├── trie.cpp
 │   	    └── trie.h
-├── Shortest Path                   # shortest path algorithms
-│   └── dijkstra.cpp
 ├── Seaching                           # sorting algorithms
 │   ├── binary_search.cpp
 │   ├── linear_search.cpp
 │   └── naive_string_search.cpp
+├── Shortest Path                      # shortest path algorithms
+│   └── dijkstra.cpp
 └── Sorting                            # searching algorithms
     ├── bubble_sort.cpp
     ├── counting_sort.cpp
