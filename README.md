@@ -10,7 +10,7 @@
 
 ![Header][header-screenshot]
 
-Algorithms
+#### Algorithms
 | Name | File |
 |------|------|
 |Bubble Sort|[bubble_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/bubble_sort.cpp)|
@@ -26,7 +26,7 @@ Algorithms
 |Naive String Search|[naive_string_search.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/naive_string_search.cpp)|
 
 
-Data Structures
+#### Data Structures
 | Name | File |
 |------|------|
 |Hash Table|[hash_table.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
@@ -42,7 +42,7 @@ Data Structures
 |Trie|[trie.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_trie.h)|
 
 
-# Folder Hierarchy
+## Folder Hierarchy
 ```
 Algorithm Hub
 ├── Coding Questions
