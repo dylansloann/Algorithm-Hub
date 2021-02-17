@@ -21,7 +21,7 @@
 |Radix Sort|[radix_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/radix_sort.cpp)|
 |Selection Sort|[selection_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/selection_sort.cpp)|
 |Dijkstra's|[dijkstra.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Shortest%20Path/WIP_dijkstra.cpp)|
-|Binary Search|[binary.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/binary_seach.cpp)|
+|Binary Search|[binary_search.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/binary_seach.cpp)|
 |Naive String Search|[naive_string_search.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/naive_string_search.cpp)|
 
 
