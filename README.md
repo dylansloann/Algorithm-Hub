@@ -22,7 +22,6 @@
 |Selection Sort|[selection_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/selection_sort.cpp)|
 |Dijkstra's|[dijkstra.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Shortest%20Path/WIP_dijkstra.cpp)|
 |Binary Search|[binary.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/binary_seach.cpp)|
-|Linear Search|[linear_search.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/linear_search.cpp)|
 |Naive String Search|[naive_string_search.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/naive_string_search.cpp)|
 
 
@@ -67,7 +66,6 @@ Algorithm Hub
 │       └── trie.h
 ├── Seaching                           # sorting algorithms
 │   ├── binary_search.cpp
-│   ├── linear_search.cpp
 │   └── naive_string_search.cpp
 ├── Shortest Path                      # shortest path algorithms
 │   └── dijkstra.cpp
