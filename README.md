@@ -27,7 +27,7 @@
 
 | Name | File |
 |------|------|
-|Hash Table|[hash_table.h]https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h|
+|Hash Table|[hash_table.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
 |Singly Linked List|https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/singly_linked_list.h|
 |Doubly Linked List|https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/WIP_doubly_linked.h|
 |Graph|https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Graph/WIP_graph.h|
