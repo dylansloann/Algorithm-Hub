@@ -59,7 +59,7 @@ Algorithm Hub
 │   │   └── queue_linked.h
 │   ├── Stack                          # stack array/linked-list
 │   │   ├── stack_array.h
-│   │	  └── stack_linked.h
+│   │   └── stack_linked.h
 │   └── Tree                           # BST/binary tree/heap/trie
 │       ├── BST.h
 │       ├── heap.h
