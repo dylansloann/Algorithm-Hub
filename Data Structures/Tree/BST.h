@@ -2,9 +2,6 @@
 #define BST_H
 
 #include <queue>
-#include <iostream>
-
-using std::cout, std::endl;
 
 template <typename T>
 struct Node {
@@ -194,7 +191,7 @@ void BinarySearchTree<T>::preorder(Node<T>* node) {
     if (node == nullptr)
         return;
 
-    cout << node->data << " -> ";
+    std::cout << node->data << " -> ";
     preorder( node->left );
     preorder( node->right );
 }
