@@ -39,7 +39,7 @@ class BinarySearchTree {
 
 
 
-        // pre root paramter methods for recursive methods
+        // pre root input methods for recursive methods
         void insert(T n) { 
             if (root == nullptr) {
                 root = new Node<T>(n);
