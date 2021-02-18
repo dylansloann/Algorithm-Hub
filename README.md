@@ -38,7 +38,6 @@
 |Queue Array|[queue_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_array.h)|
 |Binary Search Tree|[BST.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/BST.h)|
 |Heap|[heap.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_heap.h)|
-|Trie|[trie.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_trie.h)|
 
 
 ## Folder Hierarchy
@@ -62,8 +61,7 @@ Algorithm Hub
 │   │   └── stack_linked.h
 │   └── Tree                           # BST/binary tree/heap/trie
 │       ├── BST.h
-│       ├── heap.h
-│       └── trie.h
+│       └── heap.h
 ├── Seaching                           # sorting algorithms
 │   ├── binary_search.cpp
 │   └── naive_string_search.cpp
