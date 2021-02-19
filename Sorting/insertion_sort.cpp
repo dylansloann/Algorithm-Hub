@@ -1,4 +1,12 @@
-// COMPLEXITY: Time - O(n^2)
+/*
+	Insertion Sort (Comparison-basd)
+	Running Times:
+		Worst Case -- O(n^2)
+		Best Case -- O(max digits (n)
+		Average Case -- O(n^2)
+
+	Space: Worst -- O(1)
+*/
 
 void insertionSort(int array[], int length) {
 	for (int i = 1; i < length; i++) {

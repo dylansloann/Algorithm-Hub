@@ -1,4 +1,12 @@
-// COMPLEXITY: Time - O(n*log(n))
+/*
+	Merge Sort (Comparison-basd)
+	Running Times:
+		Worst Case -- O(n*log(n))
+		Best Case -- O(n*log(n))
+		Average Case -- O(n*log(n))
+
+	Space: Worst -- O(n)
+*/
 
 void merge(int array[], int leftEnd, int mid, int rightEnd) {
 	// new temp array sizes

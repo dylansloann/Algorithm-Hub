@@ -50,10 +50,18 @@ class SinglyLinkedList {
 		void display();
 };
 
-
+/*
+   Default Constructor
+*/
 template <typename T>
 SinglyLinkedList<T>::SinglyLinkedList() : head(nullptr), tail(nullptr),  _size(0) {}
 
+/*
+   Copy Constructor
+
+   @param  other	secondary linked list to copy
+   @return void
+*/
 template <typename T>
 SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList<T>& other) : head(new Node<T>(other.head->data)), tail(nullptr),  _size(other._size) {
 	if (other.head == nullptr) { head = nullptr; tail = nullptr; _size = 0; return; }
@@ -71,6 +79,12 @@ SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList<T>& other) : head(n
 	tail = current;
 }
 
+/*
+   Copy Assignment Operator
+
+   @param  rhs	secondary linked list to copy
+   @return void
+*/
 template <typename T>
 SinglyLinkedList<T>& SinglyLinkedList<T>::operator=(const SinglyLinkedList<T>& rhs) {
 	if (head == rhs.head) { return *this; }
@@ -95,18 +109,39 @@ SinglyLinkedList<T>& SinglyLinkedList<T>::operator=(const SinglyLinkedList<T>& r
 	return *this;
 }
 
+/*
+   Destructor
+*/
 template <typename T>
 SinglyLinkedList<T>::~SinglyLinkedList() { clear(); }
 
+/*
+   Checks if Linked List is empty
+
+   @param  none
+   @return bool		return true if empty
+*/
 template <typename T>
 bool SinglyLinkedList<T>::empty() { 
 	if (_size == 0) return true;
 	return false;
 }
 
+/*
+   Obtains size of Linked list
+
+   @param  rhs	secondary linked list to copy
+   @return int	returns _size attribute
+*/
 template <typename T>
 int SinglyLinkedList<T>::size() { return _size; }
 
+/*
+   Clears Linked List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::clear() {
 	Node<T>* tmp;
@@ -121,6 +156,12 @@ void SinglyLinkedList<T>::clear() {
 	_size = 0;
 }
 
+/*
+   Creates Linked List of single elements
+
+   @param  node		Node to be created from
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::create_single(Node<T>* node) {
 	head = node;
@@ -129,6 +170,12 @@ void SinglyLinkedList<T>::create_single(Node<T>* node) {
 	_size = 1;
 }
 
+/*
+   Removes from Linked List of single elment (clears)
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::remove_single() {
 	delete head;
@@ -137,6 +184,12 @@ void SinglyLinkedList<T>::remove_single() {
 	_size = 0;
 }
 
+/*
+   Inserts element from back of List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::push_front(T value) {
 	Node<T>* node = new Node<T>(value);
@@ -150,6 +203,12 @@ void SinglyLinkedList<T>::push_front(T value) {
 	}
 }
 
+/*
+   Inserts element from back of List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::push_back(T value) {
 	Node<T>* node = new Node<T>(value);
@@ -163,6 +222,13 @@ void SinglyLinkedList<T>::push_back(T value) {
 	}
 }
 
+/*
+   Inserts element at desired index
+
+   @param  value	value of desired insertion
+   @param  index	index of desired insertion
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::insert(T value, int index) {
 	// error checking
@@ -191,6 +257,12 @@ void SinglyLinkedList<T>::insert(T value, int index) {
 	}
 }
 
+/*
+   Chcek is list contains paramterized value
+
+   @param  value	value to check for containment
+   @return void
+*/
 template <typename T>
 bool SinglyLinkedList<T>::contains(T value) {
 	Node<T>* current = head;
@@ -205,6 +277,12 @@ bool SinglyLinkedList<T>::contains(T value) {
 	return false;
 }
 
+/*
+   Removes element from front of List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::remove_front() {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
@@ -220,6 +298,12 @@ void SinglyLinkedList<T>::remove_front() {
 	}
 }
 
+/*
+   Removes element from back of List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::remove_back() {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
@@ -238,6 +322,12 @@ void SinglyLinkedList<T>::remove_back() {
 	_size--;
 }
 
+/*
+   Removes element at Index
+
+   @param  index	index of element to be removed
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::remove(int index) {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
@@ -268,6 +358,12 @@ void SinglyLinkedList<T>::remove(int index) {
 	_size--;
 }
 
+/*
+   Reverses Linked List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::reverse() {
     tail = head;
@@ -284,12 +380,30 @@ void SinglyLinkedList<T>::reverse() {
     head = previous;
 }
 
+/*
+   Returns Front node
+
+   @param  none
+   @return Node<T>*	node at front of list
+*/
 template <typename T>
 const Node<T>* SinglyLinkedList<T>::front() { return head; }
 
+/*
+   Returns Back node
+
+   @param  none
+   @return Node<T>*	node at back of list
+*/
 template <typename T>
 const Node<T>* SinglyLinkedList<T>::back() { return tail; }
 
+/*
+   Copy Assignment Operator
+
+   @param  rhs	secondary linked list to copy
+   @return void
+*/
 template <typename T>
 void SinglyLinkedList<T>::display() {
 	Node<T>* current = head;

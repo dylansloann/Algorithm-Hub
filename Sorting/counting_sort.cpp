@@ -1,4 +1,12 @@
-// COMPLEXITY: Time - O(n + k))
+/*
+	Counting Sort (Non Comparison-basd)
+	Running Times:
+		Worst Case -- O(n + k)
+		Best Case -- O(n + k)
+		Average Case -- O(n + k)
+
+	Space: Worst -- O(k)
+*/
 
 void countingSort(int* arr, int n, int k) {
     int i, j;

@@ -1,4 +1,12 @@
-// COMPLEXITY: Time - O(log(n))
+/*
+	Binary Search
+	Running Times:
+		Worst Case -- O(log(n))
+		Best Case -- O(1)
+		Average Case -- O(log(n))
+
+	Space: Worst -- O(1)
+*/
 
 int binarySearch(int array[], int length, int value) {
 	int startIndex = 0;

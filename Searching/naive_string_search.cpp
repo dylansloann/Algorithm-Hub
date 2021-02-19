@@ -1,6 +1,14 @@
-#include <string>
+/*
+	Naive String Search
+	Running Times:
+		Worst Case -- O(fullLengthString * subString)
+		Best Case -- O(fullLengthString * subString)
+		Average Case -- O(fullLengthString * subString)
 
-// COMPLEXITY: Time - O(fullLengthString * subString)
+	Space: Worst -- O(1)
+*/
+
+#include <string>
 
 int naiveSearch(std::string fullLengthString, std::string subString) {
 	int total = 0;

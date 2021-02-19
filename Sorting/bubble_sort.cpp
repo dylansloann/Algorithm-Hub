@@ -1,4 +1,12 @@
-// COMPLEXITY: Time - O(n^2)
+/*
+	Bubble Sort (Comparison-basd)
+	Running Times:
+		Worst Case -- O(n^2)
+		Best Case -- O(n)
+		Average Case -- O(n^2)
+
+	Space: Worst -- O(1)
+*/
 
 void bubbleSort(int array[], int length) {
 	int swapValue = array[0];

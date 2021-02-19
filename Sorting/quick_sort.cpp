@@ -1,4 +1,12 @@
-// COMPLEXITY: Time - O(n*log(n))
+/*
+	Quick Sort (Comparison-basd)
+	Running Times:
+		Worst Case -- O(n^2)
+		Best Case -- O(n*log(n))
+		Average Case -- O(n*log(n))
+
+	Space: Worst -- O(logn)
+*/
 
 void swap(int array[], int firstIndex, int secondIndex) {
 	int temp = array[firstIndex];
