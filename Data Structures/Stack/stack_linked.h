@@ -23,7 +23,7 @@ class LinkedStack {
 
 		void push(T data);
 		int pop();
-		int peek();
+		int top();
 
 		int size();
 		bool empty();
@@ -32,10 +32,18 @@ class LinkedStack {
 		void display();
 };
 
-
+/*
+   Default Constructor
+*/
 template <typename T>
 LinkedStack<T>::LinkedStack() : head(nullptr), _size(0) {}
 
+/*
+   Copy Constructor
+
+   @param  other	secondary queue to copy
+   @return void
+*/
 template <typename T>
 LinkedStack<T>::LinkedStack(const LinkedStack<T>& other) : head(new Node<T>(other.head->data)), _size(other._size) {
 	if (other.head == nullptr) { head = nullptr; _size = 0; return; }
@@ -51,6 +59,12 @@ LinkedStack<T>::LinkedStack(const LinkedStack<T>& other) : head(new Node<T>(othe
 	}
 }
 
+/*
+   Copy Assignment Operator
+
+   @param  rhs	secondary Queue to copy
+   @return void
+*/
 template <typename T>
 LinkedStack<T>& LinkedStack<T>::operator=(const LinkedStack<T>& rhs) {
 	if (head == rhs.head) { return *this; }
@@ -73,9 +87,18 @@ LinkedStack<T>& LinkedStack<T>::operator=(const LinkedStack<T>& rhs) {
 	return *this;
 }
 
+/*
+   Destructor
+*/
 template <typename T>
 LinkedStack<T>::~LinkedStack() { clear(); }
 
+/*
+   pushes element to back (top) of stack list (head = top)
+
+   @param  data		data of element to be pushed
+   @return void
+*/
 template <typename T>
 void LinkedStack<T>::push(T data) {
 	Node<T>* node = new Node<T>(data);
@@ -94,6 +117,12 @@ void LinkedStack<T>::push(T data) {
 	}
 }
 
+/*
+   Pops & returns element from top of stack list (newest element) (head = top)
+
+   @param  none
+   @return T	value of element that was popped
+*/
 template <typename T>
 T LinkedStack<T>::pop() { 
 	T returnVal = head->data;
@@ -117,12 +146,30 @@ T LinkedStack<T>::pop() {
 	return returnVal;
 }
 
-template <typename T>
-T LinkedStack<T>::peek() { return head->data; }
+/*
+   Returns elements that is currently at top of stack
 
+   @param  none
+   @return T	value of element at back of array
+*/
+template <typename T>
+T LinkedStack<T>::top() { return head->data; }
+
+/*
+   Obtains size of Stack
+
+   @param  none
+   @return int	returns _size attribute
+*/
 template <typename T>
 int LinkedStack<T>::size() { return _size; }
 
+/*
+   Checks if Stack is empty
+
+   @param  none
+   @return bool		return true if empty
+*/
 template <typename T>
 bool LinkedStack<T>::empty() { 
 	if (_size == 0) 
@@ -130,6 +177,12 @@ bool LinkedStack<T>::empty() {
 	return false;
 }
 
+/*
+   Clears stack, same as clearing a linked list (node by node)
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void LinkedStack<T>::clear() {
 	Node<T>* temp;
@@ -143,6 +196,12 @@ void LinkedStack<T>::clear() {
 	_size = 0;
 }
 
+/*
+   Displays Stack seperated by arrows
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void LinkedStack<T>::display() {
 	Node<T>* current = head;

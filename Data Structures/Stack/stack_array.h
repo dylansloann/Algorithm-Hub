@@ -15,7 +15,7 @@ class Stack {
 
 		void push(T data);
 		T pop();
-		T peek();
+		T top();
 
 		int size();
 		bool empty();
@@ -23,9 +23,18 @@ class Stack {
 		void display();
 };
 
+/*
+   Default Constructor
+*/
 template <typename T>
 Stack<T>::Stack() : stackArray(nullptr), capacity(0), _size(0) {} 
 
+/*
+   Copy Constructor
+
+   @param  other	secondary queue to copy
+   @return void
+*/
 template <typename T>
 Stack<T>::Stack(const Stack& other) : stackArray(new T[capacity]), capacity(other.capacity), _size(other._size)  {
 	for (T i = 0; i < _size; i++) {
@@ -33,6 +42,12 @@ Stack<T>::Stack(const Stack& other) : stackArray(new T[capacity]), capacity(othe
 	}
 }
 
+/*
+   Copy Assignment Operator
+
+   @param  rhs	secondary Queue to copy
+   @return void
+*/
 template <typename T>
 Stack<T>& Stack<T>::operator=(const Stack<T>& rhs) {
 	if (stackArray == rhs.stackArray) {return *this;}
@@ -50,9 +65,18 @@ Stack<T>& Stack<T>::operator=(const Stack<T>& rhs) {
 	return *this;
 }
 
+/*
+   Destructor
+*/
 template <typename T>
 Stack<T>::~Stack() { delete [] stackArray; }
 
+/*
+   pushes element to back (top) of stack array
+
+   @param  data		data of element to be pushed
+   @return void
+*/
 template <typename T>
 void Stack<T>::push(T data) {
 	// doubles capacity if stack is full
@@ -71,25 +95,55 @@ void Stack<T>::push(T data) {
 	_size++;
 }
 
+/*
+   Pops & returns element from top of stack (newest element)
+
+   @param  none
+   @return T	value of element that was popped
+*/
 template <typename T>
-int Stack<T>::pop() { 
+T Stack<T>::pop() { 
 	if (empty()) { throw std::logic_error("Popping from empty stack"); }
 	_size--;
 	return stackArray[_size];
 }
 
-template <typename T>
-T Stack<T>::peek() { return stackArray[_size - 1]; }
+/*
+   Returns elements that is currently at top of stack
 
+   @param  none
+   @return T	value of element at back of array
+*/
+template <typename T>
+T Stack<T>::top() { return stackArray[_size - 1]; }
+
+/*
+   Obtains size of Stack
+
+   @param  none
+   @return int	returns _size attribute
+*/
 template <typename T>
 T Stack<T>::size() { return _size; }
 
+/*
+   Checks if Stack is empty
+
+   @param  none
+   @return bool		return true if empty
+*/
 template <typename T>
 bool Stack<T>::empty() { 
 	if (_size == 0) return true;
 	return false;
 }
 
+/*
+   Displays Stack seperated by spaces
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void Stack<T>::display() {
 	for (int i = 0; i < _size; i++) {

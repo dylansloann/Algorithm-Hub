@@ -32,10 +32,18 @@ class LinkedQueue {
 		void display();
 };
 
-
+/*
+   Default Constructor
+*/
 template <typename T>
 LinkedQueue<T>::LinkedQueue() : _size(0), head(nullptr), tail(nullptr) {}
 
+/*
+   Copy Constructor
+
+   @param  other	secondary queue to copy
+   @return void
+*/
 template <typename T>
 LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& other) : _size(other._size), head(new Node<T>(other.head->data)), tail(nullptr) {
 	if (other.head == nullptr) { head = nullptr; _size = 0; return; }
@@ -51,6 +59,12 @@ LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& other) : _size(other._size), h
 	}
 }
 
+/*
+   Copy Assignment Operator
+
+   @param  rhs	secondary Queue to copy
+   @return void
+*/
 template <typename T>
 LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& rhs) {
 	if (head == rhs.head) { return *this; }
@@ -74,9 +88,18 @@ LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& rhs) {
 	return *this;
 }
 
+/*
+   Destructor
+*/
 template <typename T>
 LinkedQueue<T>::~LinkedQueue() { clear(); }
 
+/*
+   Inserts (enqueues) element at back of queue (back = newer)
+
+   @param  data		data of element to be enqueued
+   @return void
+*/
 template <typename T>
 void LinkedQueue<T>::enqueue(T data) {
 	Node<T>* node = new Node<T>(data);
@@ -96,6 +119,12 @@ void LinkedQueue<T>::enqueue(T data) {
 	}
 }
 
+/*
+   deletes head node and moves to next node
+
+   @param  none
+   @return T	returns element that was dequeued
+*/
 template <typename T>
 T LinkedQueue<T>::dequeue() {
 	T returnVal = head->data;
@@ -119,15 +148,33 @@ T LinkedQueue<T>::dequeue() {
 	return returnVal;
 }
 
+/*
+   Obtains size of Queue
+
+   @param  none
+   @return int	returns _size attribute
+*/
 template <typename T>
 int LinkedQueue<T>::size() { return _size; }
 
+/*
+   Checks if Queue is empty
+
+   @param  none
+   @return bool		return true if empty
+*/
 template <typename T>
 bool LinkedQueue<T>::empty() { 
 	if (_size == 0) return true; 
 	return false;
 }
 
+/*
+   Clears queue, same as clearing a linked list (node by node)
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void LinkedQueue<T>::clear() {
 	Node<T>* temp;
@@ -141,6 +188,12 @@ void LinkedQueue<T>::clear() {
 	_size = 0;
 }
 
+/*
+   Displays Queue seperated by arrows
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void LinkedQueue<T>::display() {
 	Node<T>* current = head;

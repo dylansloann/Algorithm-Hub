@@ -63,16 +63,33 @@ class BinarySearchTree {
 
 
 
-
+/*
+   Default Constructor
+*/
 template <typename T>
 BinarySearchTree<T>::BinarySearchTree() : root(nullptr) {}
 
+/*
+   Paramaterized Constructor
+
+   @param  data	    data to assign to new root node
+*/
 template <typename T>
 BinarySearchTree<T>::BinarySearchTree(T data) : root(new Node<T>(data)) {}
 
+/*
+   Destructor
+*/
 template <typename T>
 BinarySearchTree<T>::~BinarySearchTree() { clear(root); }
 
+/*
+   Inserts element at correct posotion in tree
+
+   @param  node	    node to begin from (usually root)
+   @param  n	    value to be inserted
+   @return Node<T>*    node that was inserted 
+*/
 template <typename T>
 Node<T>* BinarySearchTree<T>::insert(Node<T>* node, T n) {
     if (node == nullptr) {
@@ -90,6 +107,13 @@ Node<T>* BinarySearchTree<T>::insert(Node<T>* node, T n) {
     return node;
 }
 
+/*
+   Removes element from tree and readjust accordingly
+
+   @param  node	    node to begin from (usually root)
+   @param  n	    value to be removed
+   @return void
+*/
 template <typename T>
 void BinarySearchTree<T>::remove(Node<T>* node, T n) {
     if (node == nullptr)
@@ -122,6 +146,13 @@ void BinarySearchTree<T>::remove(Node<T>* node, T n) {
     }
 }
 
+/*
+   Searches for element inside tree by recursion and comparison
+
+   @param  node	    node to begin from (usually root)
+   @param  n	    value to be found
+   @return Node<T>*    node that was found / (nullptr if not)
+*/
 template <typename T>
 Node<T>* BinarySearchTree<T>::find(Node<T>* node, T n) const {
     if (node == nullptr) 
@@ -134,22 +165,38 @@ Node<T>* BinarySearchTree<T>::find(Node<T>* node, T n) const {
         return node;
 }
 
+/*
+   Finds minimum element in Tree iteratively
+
+   @return T    data of minimum node
+*/
 template <typename T>
-int BinarySearchTree<T>::findMin() const {
+T BinarySearchTree<T>::findMin() const {
     Node<T>* node = root;
     while (node->left != nullptr)
         node = node->left;
     return node->data;
 }
 
+/*
+   Finds minimum element in Tree iteratively
+
+   @return T    data of maximum node
+*/
 template <typename T>
-int BinarySearchTree<T>::findMax() const {
+T BinarySearchTree<T>::findMax() const {
     Node<T>* node = root;
     while (node->right != nullptr)
         node = node->left;
     return node->data;
 }
 
+/*
+   calcalates height of tree from given node
+
+   @param  node	    node to caculate height
+   @return int    height of tree
+*/
 template <typename T>
 int BinarySearchTree<T>::height(const Node<T>* node) const {
     if (node == nullptr)
@@ -164,6 +211,12 @@ int BinarySearchTree<T>::height(const Node<T>* node) const {
         return rightDepth + 1;
 }
 
+/*
+   Clears tree from root node recursively
+
+   @param  node	  root node
+   @return void
+*/
 template <typename T>
 void BinarySearchTree<T>::clear(Node<T>* node) {
     if (node == nullptr)
@@ -176,6 +229,12 @@ void BinarySearchTree<T>::clear(Node<T>* node) {
     node = nullptr;
 }
 
+/*
+   Prints inorder travelsal of given node
+
+   @param  node	  node to begin from (usually root)
+   @return void 
+*/
 template <typename T>
 void BinarySearchTree<T>::inorder(Node<T>* node) {
     if (node == nullptr)
@@ -186,6 +245,12 @@ void BinarySearchTree<T>::inorder(Node<T>* node) {
     inorder( node->right );
 }
 
+/*
+   Prints preorder travelsal of given node
+
+   @param  node	  node to begin from (usually root)
+   @return void 
+*/
 template <typename T>
 void BinarySearchTree<T>::preorder(Node<T>* node) {
     if (node == nullptr)
@@ -196,6 +261,12 @@ void BinarySearchTree<T>::preorder(Node<T>* node) {
     preorder( node->right );
 }
 
+/*
+   Prints postorder travelsal of given node
+
+   @param  node	  node to begin from (usually root)
+   @return void 
+*/
 template <typename T>
 void BinarySearchTree<T>::postorder(Node<T>* node) {
     if (node == nullptr)
@@ -206,6 +277,12 @@ void BinarySearchTree<T>::postorder(Node<T>* node) {
     std::cout <<  node->data << " -> ";
 }
 
+/*
+   Prints level order travelsal of given node
+
+   @param  node	  node to begin from (usually root)
+   @return void 
+*/
 template <typename T>
 void BinarySearchTree<T>::BFS(Node<T>* node) {
     if (node != nullptr) {

@@ -25,10 +25,18 @@ class Queue {
 		void display();
 };
 
-
+/*
+   Default Constructor
+*/
 template <typename T>
 Queue<T>::Queue() : queueArray(nullptr), capacity(0), _size(0), front(-1), back(-1) {}
 
+/*
+   Copy Constructor
+
+   @param  other	secondary queue to copy
+   @return void
+*/
 template <typename T>
 Queue<T>::Queue(const Queue<T>& other) : queueArray(new int[capacity]), capacity(other.capacity), _size(other._size), front(other.front), back(other.back) {
 	for (int i = front; i <= back; i++) {
@@ -36,6 +44,12 @@ Queue<T>::Queue(const Queue<T>& other) : queueArray(new int[capacity]), capacity
 	}
 }
 
+/*
+   Copy Assignment Operator
+
+   @param  rhs	secondary Queue to copy
+   @return void
+*/
 template <typename T>
 Queue<T>& Queue<T>::operator=(const Queue<T>& rhs) {
 	if (queueArray == rhs.queueArray) {return *this;}
@@ -55,9 +69,18 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& rhs) {
 	return *this;
 }
 
+/*
+   Destructor
+*/
 template <typename T>
 Queue<T>::~Queue() { delete [] queueArray; }
 
+/*
+   Inserts (enqueues) element at back of queue (back = newer)
+
+   @param  data		data of element to be enqueued
+   @return void
+*/
 template <typename T>
 void Queue<T>::enqueue(T data) {
 	if (_size == capacity) {
@@ -81,6 +104,12 @@ void Queue<T>::enqueue(T data) {
 	}
 }
 
+/*
+   Increamentes front value to "remove" first element (oldest) from Queue
+
+   @param  none
+   @return T	returns element that was dequeued
+*/
 template <typename T>
 T Queue<T>::dequeue() {
 	if (empty()) { throw std::logic_error("Dequeueing from empty queue"); }
@@ -97,12 +126,30 @@ T Queue<T>::dequeue() {
 	return returnValue;
 }
 
+/*
+   Obtains size of Queue
+
+   @param  none
+   @return int	returns _size attribute
+*/
 template <typename T>
 int Queue<T>::size() { return _size; }
 
+/*
+   Checks if Queue is empty
+
+   @param  none
+   @return bool		return true if empty
+*/
 template <typename T>
 bool Queue<T>::empty() { if (_size == 0) { return true; } else { return false; } }
 
+/*
+   Displays Queue seperated by spaces
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void Queue<T>::display() {
 	if (_size == 0) { return; }

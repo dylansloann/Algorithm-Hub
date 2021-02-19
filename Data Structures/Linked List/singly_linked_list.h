@@ -31,17 +31,17 @@ class SinglyLinkedList {
 		void create_single(Node<T>* node);
 		void remove_single();
 
-		// inserting a node
+		// operations
 		void push_front(T value);
 		void push_back(T value);
 		void insert(T value, int index);
 		bool contains(T value);
 
-		// removing a node
 		void remove_front();
 		void remove_back();
 		void remove(int index);
 
+		// extra
 		void reverse();
 
 		const Node<T>* front();
@@ -130,7 +130,7 @@ bool SinglyLinkedList<T>::empty() {
 /*
    Obtains size of Linked list
 
-   @param  rhs	secondary linked list to copy
+   @param  none
    @return int	returns _size attribute
 */
 template <typename T>
@@ -185,7 +185,7 @@ void SinglyLinkedList<T>::remove_single() {
 }
 
 /*
-   Inserts element from back of List
+   Inserts element at front of List
 
    @param  none
    @return void
@@ -204,7 +204,7 @@ void SinglyLinkedList<T>::push_front(T value) {
 }
 
 /*
-   Inserts element from back of List
+   Inserts element at back of List
 
    @param  none
    @return void
@@ -399,9 +399,9 @@ template <typename T>
 const Node<T>* SinglyLinkedList<T>::back() { return tail; }
 
 /*
-   Copy Assignment Operator
+   Displays Linked List with arrows representing links
 
-   @param  rhs	secondary linked list to copy
+   @param  none
    @return void
 */
 template <typename T>

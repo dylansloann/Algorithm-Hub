@@ -31,8 +31,8 @@ class DoublyLinkedList {
 
 		void remove_front();
 		void remove_back();
-		void removeBefore(T value, Node<T>* node);
-		void removeAfter(T value, Node<T>* node);
+		void removeBefore(Node<T>* node);
+		void removeAfter(Node<T>* node);
 		void remove(int index);
 
 
@@ -44,10 +44,18 @@ class DoublyLinkedList {
 };
 
 
-
+/*
+   Default Constructor
+*/
 template <typename T>
 DoublyLinkedList<T>::DoublyLinkedList() : head(nullptr), tail(nullptr), _size(0) {}
 
+/*
+   Copy Constructor
+
+   @param  other	secondary linked list to copy
+   @return void
+*/
 template <typename T>
 DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList& other) : head(new Node<T>(other.head->data)), tail(nullptr),  _size(other._size) {
 	if (other.head == nullptr) { head = nullptr; tail = nullptr; _size = 0; return; }
@@ -67,6 +75,12 @@ DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList& other) : head(new 
 	tail = current;
 }
 
+/*
+   Copy Assignment Operator
+
+   @param  rhs	secondary linked list to copy
+   @return void
+*/
 template <typename T>
 DoublyLinkedList<T>& DoublyLinkedList<T>::operator=(const DoublyLinkedList<T>& rhs) {
 	if (head == rhs.head) { return *this; }
@@ -93,9 +107,18 @@ DoublyLinkedList<T>& DoublyLinkedList<T>::operator=(const DoublyLinkedList<T>& r
 	return *this;
 }
 
+/*
+   Destructor
+*/
 template <typename T>
 DoublyLinkedList<T>::~DoublyLinkedList() { clear(); }
 
+/*
+   Inserts element at front of List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::push_front(T value) {
     Node<T>* node = new Node<T>(value);
@@ -116,6 +139,12 @@ void DoublyLinkedList<T>::push_front(T value) {
     }
 }
 
+/*
+   Inserts element at back of List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::push_back(T value) {
 	Node<T>* node = new Node<T>(value);
@@ -136,6 +165,12 @@ void DoublyLinkedList<T>::push_back(T value) {
 	}
 }
 
+/*
+   Inserts element at before certain node
+
+   @param  inputNode	Node to insert element before
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::insertBefore(T value, Node<T>* inputNode) {
 	Node<T>* node = new Node<T>(value);
@@ -148,6 +183,12 @@ void DoublyLinkedList<T>::insertBefore(T value, Node<T>* inputNode) {
 	node->next = inputNode;
 }
 
+/*
+   Inserts element at before certain node
+
+   @param  inputNode	Node to insert element after
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::insertAfter(T value, Node<T>* inputNode) {
 	Node<T>* node = new Node<T>(value);
@@ -160,6 +201,13 @@ void DoublyLinkedList<T>::insertAfter(T value, Node<T>* inputNode) {
 	node->prev = inputNode;
 }
 
+/*
+   Inserts element at desired index
+
+   @param  value	value of desired insertion
+   @param  index	index of desired insertion
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::insert(T value, int index) {
 	if (index > _size) { throw std::invalid_argument("Index too large."); }
@@ -193,6 +241,12 @@ void DoublyLinkedList<T>::insert(T value, int index) {
 	}
 }
 
+/*
+   Removes element from front of List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::remove_front() {
 	if ( empty() ) { throw std::logic_error("Removing from empty list"); }
@@ -212,6 +266,12 @@ void DoublyLinkedList<T>::remove_front() {
 	}
 }
 
+/*
+   Removes element from back of List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::remove_back() {
 	if ( empty() ) { throw std::logic_error("Removing from empty list"); }
@@ -231,8 +291,14 @@ void DoublyLinkedList<T>::remove_back() {
 	}
 }
 
+/*
+   Removes element at before certain node
+
+   @param  inputNode	Node to remove element before
+   @return void
+*/
 template <typename T>
-void DoublyLinkedList<T>::removeBefore(T value, Node<T>* inputNode) {
+void DoublyLinkedList<T>::removeBefore(Node<T>* inputNode) {
 	if (head == inputNode) { throw std::logic_error("Removing before head"); }
 	
 	Node<T>* tmp1 = inputNode->prev;
@@ -245,8 +311,14 @@ void DoublyLinkedList<T>::removeBefore(T value, Node<T>* inputNode) {
 	delete tmp1;
 }
 
+/*
+   Removes element at after certain node
+
+   @param  inputNode	Node to remove element after
+   @return void
+*/
 template <typename T>
-void DoublyLinkedList<T>::removeAfter(T value, Node<T>* inputNode) {
+void DoublyLinkedList<T>::removeAfter(Node<T>* inputNode) {
 	if (tail == inputNode) { throw std::logic_error("Removing after tail"); }
 	
 	Node<T>* tmp1 = inputNode->next;
@@ -259,6 +331,12 @@ void DoublyLinkedList<T>::removeAfter(T value, Node<T>* inputNode) {
 	delete tmp1;
 }
 
+/*
+   Removes element at Index
+
+   @param  index	index of element to be removed
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::remove(int index) {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
@@ -292,10 +370,21 @@ void DoublyLinkedList<T>::remove(int index) {
 	_size--;
 }
 
+/*
+   Obtains size of Linked list
 
+   @param  none
+   @return int	returns _size attribute
+*/
 template <typename T>
 int DoublyLinkedList<T>::size() { return _size; }
 
+/*
+   Clears Linked List
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::clear() {
 	Node<T>* tmp;
@@ -310,12 +399,24 @@ void DoublyLinkedList<T>::clear() {
 	_size = 0;
 }
 
+/*
+   Checks if Linked List is empty
+
+   @param  none
+   @return bool		return true if empty
+*/
 template <typename T>
 bool DoublyLinkedList<T>::empty() {
 	if (_size == 0) return true;
 	return false;
 }
 
+/*
+   Displays Linked List with arrows representing links
+
+   @param  none
+   @return void
+*/
 template <typename T>
 void DoublyLinkedList<T>::display() {
 	Node<T>* current = head;
