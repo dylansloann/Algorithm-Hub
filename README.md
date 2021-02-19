@@ -6,13 +6,13 @@
   <h3 align="center">Algorithm Hub</h3>
 
   <p align="center">
-     Hub for popular Data Structures and Algorithms.
+     Hub for popular Data Structures and Algorithms / Problems.
 
 ![Header][header-screenshot]
 
 *** Many more to come ***
 
-#### Algorithms
+#### Common Algorithms
 | Name | File |
 |------|------|
 |Bubble Sort|[bubble_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/bubble_sort.cpp)|
@@ -42,11 +42,24 @@
 |Binary Search Tree|[BST.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/BST.h)|
 |Heap|[heap.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_heap.h)|
 
+#### Problems
+| Name | File |
+|------|------|
+|Roman to Int|[Roman_to_Int.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/Roman_to_Int.cpp)|
+|Add Two List|[add_two_list.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/add_two_list.cpp)|
+|Contains Duplicates|[contains_duplicates.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/contains_duplicates.cpp)|
+|Longest Common Prefix|[longest_common_prefix.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/longest_common_prefix.cpp)|
+|Merge Sorted Linked List|[merge_sorted_linkedlist.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/merge_sorted_linkedlist.cpp)|
+|Num Palindrome|[stack_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Stack/stack_array.h)|
+|Reverse 32bit Integer|[queue_linked.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_linked.h)|
+|Two Sum|[queue_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_array.h)|
+|Two Sum (Hash Table)|https://github.com/dylansloann/Algorithm-Hub/blob/master/--Problems--/two_sum_hash.cpp|
+
 
 ## Folder Hierarchy
 ```
 Algorithm Hub
-├── Coding Questions
+├── Problems
 │   └── Check Folder for all .cpp
 ├── Data Structures                    # implementation of common data structures
 │   ├── Graph                          # graph
