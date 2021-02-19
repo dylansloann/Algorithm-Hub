@@ -157,7 +157,7 @@ void SinglyLinkedList<T>::clear() {
 }
 
 /*
-   Creates Linked List of single elements
+   Creates Linked List of single element
 
    @param  node		Node to be created from
    @return void
