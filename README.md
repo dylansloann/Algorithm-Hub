@@ -45,15 +45,15 @@
 #### Problems
 | Name | File |
 |------|------|
-|Roman to Int|[Roman_to_Int.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/Roman_to_Int.cpp)|
-|Add Two List|[add_two_list.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/add_two_list.cpp)|
-|Contains Duplicates|[contains_duplicates.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/contains_duplicates.cpp)|
-|Longest Common Prefix|[longest_common_prefix.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/longest_common_prefix.cpp)|
-|Merge Sorted Linked List|[merge_sorted_linkedlist.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Coding%20Questions/merge_sorted_linkedlist.cpp)|
-|Num Palindrome|[stack_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Stack/stack_array.h)|
-|Reverse 32bit Integer|[queue_linked.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_linked.h)|
-|Two Sum|[queue_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_array.h)|
-|Two Sum (Hash Table)|https://github.com/dylansloann/Algorithm-Hub/blob/master/--Problems--/two_sum_hash.cpp|
+|Roman to Int|[Roman_to_Int.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/Roman_to_Int.cpp)|
+|Add Two List|[add_two_list.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/add_two_list.cpp)|
+|Contains Duplicates|[contains_duplicates.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/contains_duplicates.cpp)|
+|Longest Common Prefix|[longest_common_prefix.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/longest_common_prefix.cpp)|
+|Merge Sorted Linked List|[merge_sorted_linkedlist.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/merge_sorted_linkedlist.cpp)|
+|Num Palindrome|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/num_palindrome.cpp|
+|Reverse 32bit Integer|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/rev_32bit_int.cpp|
+|Two Sum|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/two_sum.cpp|
+|Two Sum (Hash Table)|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/two_sum_hash.cpp|
 
 
 ## Folder Hierarchy
