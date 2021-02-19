@@ -45,9 +45,9 @@
 #### Problems
 | Name | File |
 |------|------|
-|Roman to Int|[Roman_to_Int.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/Roman_to_Int.cpp)|
-|Add Two List|[add_two_list.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/add_two_list.cpp)|
-|Contains Duplicates|[contains_duplicates.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/contains_duplicates.cpp)|
+|Roman to Int|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/Roman_to_Int.cpp|
+|Add Two List|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/add_two_list.cpp|
+|Contains Duplicates|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/contains_duplicates.cpp|
 |Longest Common Prefix|[longest_common_prefix.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/longest_common_prefix.cpp)|
 |Merge Sorted Linked List|[merge_sorted_linkedlist.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/merge_sorted_linkedlist.cpp)|
 |Num Palindrome|[num_palindrome.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/num_palindrome.cpp)|
