@@ -40,8 +40,8 @@
 |Queue Array|[queue_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_array.h)|
 |Binary Search Tree|[BST.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/BST.h)|
 |Heap|[heap.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_heap.h)|
-|Hash Map|[hash_map_basic.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
-|Hash Map with Chaining|[hash_map_chaining.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
+|Hash Map Basic|[hash_map_basic.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
+|Hash Map Chaining|[hash_map_chaining.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
 
 #### Problems
 | Name | File |
