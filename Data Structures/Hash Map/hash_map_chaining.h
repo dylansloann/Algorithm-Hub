@@ -2,12 +2,13 @@
 #define HASH_MAP_CHAINING_H
 
 #include <vector>
+#include <iostream>
 
 template <typename T>
 struct HashEntry {
 	int key;
 	T value;
-	HashEntry(int key, int value) {
+	HashEntry(int key, T value) {
 		this->key= key;
 		this->value = value;
 	}
@@ -41,9 +42,7 @@ ChainHashMap<T>::ChainHashMap(int size) : size(size), map(new std::vector<HashEn
    Destructor
 */
 template <typename T>
-ChainHashMap<T>::~ChainHashMap() {	
-	delete[] map;
-}
+ChainHashMap<T>::~ChainHashMap() {	delete[] map; }
 
 /*
    Returns hash for desired key value
@@ -83,8 +82,15 @@ T ChainHashMap<T>::get(int key) {
 template <typename T>
 void ChainHashMap<T>::set(int key, T data) {
     int index = hash(key);
-    HashEntry newEntry(key, data);
-    map[index].push_back(newEntry);
+    HashEntry<T>* newEntry = new HashEntry<T>(key, data);
+    for (int i = 0; i < map[index].size(); i++) {
+        if (map[index][i].key == key) {
+            map[index][i].value = newEntry->value;
+            return;
+        }
+    }
+    map[index].push_back(*newEntry);
+    delete newEntry;
 }
 
 /*
@@ -96,6 +102,7 @@ void ChainHashMap<T>::set(int key, T data) {
 template <typename T>
 void ChainHashMap<T>::remove(int key) {
     int index = hash(key);
+       
     int vecIndex = 0;
     bool found = false;
     for (int i = 0; i < map[index].size(); i++) {
@@ -107,10 +114,7 @@ void ChainHashMap<T>::remove(int key) {
     }
 
     if (found) {
-        for (int i = vecIndex; i < map[index].size() - 1; i++) {
-            map[index][i].key = map[index][i + 1].key;
-            map[index][i].value = map[index][i + 1].value;
-        }
+        map[index].erase(map[index].begin() + vecIndex);
     }
 }
 

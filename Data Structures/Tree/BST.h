@@ -2,6 +2,7 @@
 #define BST_H
 
 #include <queue>
+#include <iostream>
 
 template <typename T>
 struct Node {
@@ -11,6 +12,7 @@ struct Node {
 
     Node() : data(0), left(nullptr), right(nullptr) {}
     Node(T data) : data(data), left(nullptr), right(nullptr) {}
+    int getData() { return data; }
 };
 
 template <typename T>
@@ -23,14 +25,14 @@ class BinarySearchTree {
         ~BinarySearchTree();
 
         Node<T>* insert(Node<T>* node, T n);
-        void remove(Node<T>* node, T n);
+        Node<T>* remove(Node<T>* node, T n);
         Node<T>* find(Node<T>* node, T n) const;
 
-        int findMin() const;
-        int findMax() const;
+        Node<T>* findMin(Node<T>* node) const;
+        Node<T>* findMax(Node<T>* node) const;
         int height(const Node<T>* node) const;
 
-        void clear(Node<T>* node);
+        Node<T>* clear(Node<T>* node);
 
         void inorder(Node<T>* node);
         void preorder(Node<T>* node);
@@ -39,21 +41,15 @@ class BinarySearchTree {
 
 
 
-        // pre root input methods for recursive methods
-        void insert(T n) { 
-            if (root == nullptr) {
-                root = new Node<T>(n);
-                root->left = nullptr;
-                root->right = nullptr;
-                return;
-            }
-            insert(root, n);
-        }
-        void remove(T n) { remove(root, n); }
+        // pre root methods for paramaterized recursive methods
+        Node<T>* insert(T n) { return insert(root, n); }
+        Node<T>* remove(T n) { return remove(root, n); }
         Node<T>* find(T n) const { return find(root, n); }
 
+        Node<T>* findMin() const { return findMin(root); }
+        Node<T>* findMax() const { return findMax(root); }
         int height() const { return height(root); }
-        void clear() { clear(root); }
+        void clear() { clear(root); root = nullptr; }
         
         void inorder() { inorder(root); }
         void preorder() { preorder(root); }
@@ -97,6 +93,8 @@ Node<T>* BinarySearchTree<T>::insert(Node<T>* node, T n) {
         node->data = n;
         node->left = nullptr;
         node->right = nullptr;
+        if (root == nullptr)
+            root = node;
     }
     
     else if (n > node->data)
@@ -112,38 +110,44 @@ Node<T>* BinarySearchTree<T>::insert(Node<T>* node, T n) {
 
    @param  node	    node to begin from (usually root)
    @param  n	    value to be removed
-   @return void
+   @return Node<T>*     node that was deleted
 */
 template <typename T>
-void BinarySearchTree<T>::remove(Node<T>* node, T n) {
+Node<T>* BinarySearchTree<T>::remove(Node<T>* node, T n) {
     if (node == nullptr)
-        return;
+        return node;
  
-    if (n < node->n)
-        root->left = deleteNode(node->left, n);
-    else if (n > node->n)
-        node->right = deleteNode(node->right, n);
+    if (n < node->data)
+        node->left = remove(node->left, n);
+    else if (n > node->data)
+        node->right = remove(node->right, n);
 
-
-    if (node->left == nullptr && node->right == nullptr) {
-        delete node;
-        node = nullptr;
-    }
-    else if(root->right == nullptr) {
-        Node<T>* tmp = node;
-        node = node->left;
-        delete tmp;
-    }
-    else if(node->left == nullptr) {
-        Node<T>* tmp = node;
-        node = node->right;
-        delete tmp;
-    }
     else {
-        Node<T>* tmp = minValueNode(root->right);
-        root->key = tmp->key;
-        root->right = deleteNode(root->right, tmp->key);
+
+        if (node->left == nullptr && node->right == nullptr) {
+            std::cout << "test" << std::endl;
+            delete node;
+            node = nullptr;
+        }
+        else if(root->right == nullptr) {
+            Node<T>* tmp = node;
+            node = node->left;
+            delete tmp;
+        }
+        else if(node->left == nullptr) {
+            Node<T>* tmp = node;
+            node = node->right;
+            delete tmp;
+        }
+        else {
+            Node<T>* tmp = findMin(node->right);
+            node->data = tmp->data;
+            node->right = remove(node->right, tmp->data);
+        }
+    
     }
+
+    return node;
 }
 
 /*
@@ -168,31 +172,31 @@ Node<T>* BinarySearchTree<T>::find(Node<T>* node, T n) const {
 /*
    Finds minimum element in Tree iteratively
 
-   @return T    data of minimum node
+   @param  none
+   @return Node<T>*    minimum Node
 */
 template <typename T>
-T BinarySearchTree<T>::findMin() const {
-    Node<T>* node = root;
+Node<T>* BinarySearchTree<T>::findMin(Node<T>* node) const {
     while (node->left != nullptr)
         node = node->left;
-    return node->data;
+    return node;
 }
 
 /*
-   Finds minimum element in Tree iteratively
+   Finds maximum element in Tree iteratively
 
-   @return T    data of maximum node
+   @param  none
+   @return Node<T>*    maximum node
 */
 template <typename T>
-T BinarySearchTree<T>::findMax() const {
-    Node<T>* node = root;
+Node<T>* BinarySearchTree<T>::findMax(Node<T>* node) const {
     while (node->right != nullptr)
-        node = node->left;
-    return node->data;
+        node = node->right;
+    return node;
 }
 
 /*
-   calcalates height of tree from given node
+   Calcalates height of tree from given node
 
    @param  node	    node to caculate height
    @return int    height of tree
@@ -202,8 +206,8 @@ int BinarySearchTree<T>::height(const Node<T>* node) const {
     if (node == nullptr)
         return 0;
 
-    int leftDepth = maxDepth(node->left);
-    int rightDepth = maxDepth(node->right);
+    int leftDepth = height(node->left);
+    int rightDepth = height(node->right);
     
     if (leftDepth > rightDepth) 
         return leftDepth + 1; 
@@ -218,15 +222,15 @@ int BinarySearchTree<T>::height(const Node<T>* node) const {
    @return void
 */
 template <typename T>
-void BinarySearchTree<T>::clear(Node<T>* node) {
+Node<T>* BinarySearchTree<T>::clear(Node<T>* node) {
     if (node == nullptr)
-        return;
+        return nullptr;
 
-    clear(node->left);
-    clear(node->right);
+    node->left = clear(node->left);
+    node->right = clear(node->right);
  
     delete node;
-    node = nullptr;
+    return nullptr;
 }
 
 /*
