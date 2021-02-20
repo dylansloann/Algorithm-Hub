@@ -31,7 +31,6 @@
 #### Data Structures
 | Name | File |
 |------|------|
-|Hash Table|[hash_table.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
 |Singly Linked List|[singly_linked_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/singly_linked_list.h)|
 |Doubly Linked List|[doubly_linked_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/doubly_linked_list.h)|
 |Graph|[graph.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Graph/WIP_graph.h)|
@@ -41,6 +40,8 @@
 |Queue Array|[queue_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_array.h)|
 |Binary Search Tree|[BST.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/BST.h)|
 |Heap|[heap.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_heap.h)|
+|Hash Map|[hash_map_basic.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
+|Hash Map with Chaining|[hash_map_chaining.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Table/hash_table.h)|
 
 #### Problems
 | Name | File |
@@ -64,8 +65,9 @@ Algorithm Hub
 ├── Data Structures                    # implementation of common data structures
 │   ├── Graph                          # graph
 │   │   └── graph.h
-│   ├── Hash Table
-│   │   └── hash_table.h
+│   ├── Hash Map
+│   │   ├── hash_map_basic.h
+│   │   └── hash_map_chaining.h
 │   ├── Linked List                    # singly/doubly linked list
 │   │   ├── doubly_linked_list.h
 │   │   └── singly_linked_list.h
