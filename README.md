@@ -10,7 +10,7 @@
 
 ![Header][header-screenshot]
 
-##### Many more to come
+_Many more to come_
 
 #### Common Algorithms
 | Name | File |
@@ -29,7 +29,7 @@
 
 
 #### Data Structures
-##### Both graphs offer directed & undirected, both tree & graph implement BFS & DFS
+_Both graphs offer directed & undirected, both tree & graph implement BFS & DFS_
 | Name | File |
 |------|------|
 |Singly Linked List|[singly_linked_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/singly_linked_list.h)|
