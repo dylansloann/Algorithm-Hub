@@ -29,6 +29,7 @@
 
 
 #### Data Structures
+*** Both graphs offer directed & undirected, both tree & graph implement BFS & DFS ***
 | Name | File |
 |------|------|
 |Singly Linked List|[singly_linked_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/singly_linked_list.h)|

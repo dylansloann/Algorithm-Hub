@@ -293,7 +293,7 @@ void BinarySearchTree<T>::BFS(Node<T>* node) {
         std::queue<Node<T>*> order;
         order.push(node);
 
-        while(order.empty() == false) {
+        while(!order.empty()) {
             Node<T>* tmp = order.front();
             std::cout << tmp->data << " -> ";
             if (tmp->left != nullptr)
