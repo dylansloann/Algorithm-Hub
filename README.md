@@ -33,8 +33,8 @@
 |------|------|
 |Singly Linked List|[singly_linked_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/singly_linked_list.h)|
 |Doubly Linked List|[doubly_linked_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Linked%20List/doubly_linked_list.h)|
-|Graph Adjacency List (vector, does not use STL list)|[graph_adj_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Graph/graph_adj_list.h)|
-|Graph Adjacency Matrix (vector)|[graph_adj_matrix.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Graph/graph_adj_matrix.h)|
+|Graph Adjacency List (does not use STL list)|[graph_adj_list.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Graph/graph_adj_list.h)|
+|Graph Adjacency Matrix|[graph_adj_matrix.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Graph/graph_adj_matrix.h)|
 |Stack Linked List|[stack_linked.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Stack/stack_linked.h)|
 |Stack Array|[stack_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Stack/stack_array.h)|
 |Queue Linked List|[queue_linked.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_linked.h)|
