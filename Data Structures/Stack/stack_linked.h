@@ -42,7 +42,6 @@ LinkedStack<T>::LinkedStack() : head(nullptr), _size(0) {}
    Copy Constructor
 
    @param  other	secondary queue to copy
-   @return void
 */
 template <typename T>
 LinkedStack<T>::LinkedStack(const LinkedStack<T>& other) : head(new Node<T>(other.head->data)), _size(other._size) {
@@ -63,7 +62,7 @@ LinkedStack<T>::LinkedStack(const LinkedStack<T>& other) : head(new Node<T>(othe
    Copy Assignment Operator
 
    @param  rhs	secondary Queue to copy
-   @return void
+   @return LinkedStack<T>& 	refrence to stack once fully copied
 */
 template <typename T>
 LinkedStack<T>& LinkedStack<T>::operator=(const LinkedStack<T>& rhs) {

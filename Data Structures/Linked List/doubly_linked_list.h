@@ -54,7 +54,6 @@ DoublyLinkedList<T>::DoublyLinkedList() : head(nullptr), tail(nullptr), _size(0)
    Copy Constructor
 
    @param  other	secondary linked list to copy
-   @return void
 */
 template <typename T>
 DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList& other) : head(new Node<T>(other.head->data)), tail(nullptr),  _size(other._size) {
@@ -79,7 +78,7 @@ DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList& other) : head(new 
    Copy Assignment Operator
 
    @param  rhs	secondary linked list to copy
-   @return void
+   @return DoublyLinkedList<T>& 	refrence to list once fully copied
 */
 template <typename T>
 DoublyLinkedList<T>& DoublyLinkedList<T>::operator=(const DoublyLinkedList<T>& rhs) {

@@ -3,28 +3,28 @@
 
 #include <cstddef>
 
-template <typename T>
+template <typename T, typename V>
 struct HashEntry {
-	int key;
-	T value;
-	HashEntry(int key, T value) {
+	T key;
+	V value;
+	HashEntry(T key, V value) {
 		this->key= key;
 		this->value = value;
 	}
 };
 
-template <typename T>
+template <typename T, typename V>
 class BasicHashMap {
 	private:
-		HashEntry<T>** map;
+		HashEntry<T,V>** map;
 		int size;
 	public:
 		BasicHashMap(int size);
 		~BasicHashMap();
 
 		int hash(int key);
-		T get(int key);
-		void set(int key, T value);
+		V get(int key);
+		void set(T key, V value);
 		void remove(int key);
 
 		void clear();
@@ -36,14 +36,14 @@ class BasicHashMap {
    @param  size	    size to contruct array
    @return void
 */
-template <typename T>
-BasicHashMap<T>::BasicHashMap(int size) : size(size), map(new HashEntry<T>*[size]()) {}
+template <typename T, typename V>
+BasicHashMap<T,V>::BasicHashMap(int size) : size(size), map(new HashEntry<T,V>*[size]()) {}
 
 /*
    Destructor
 */
-template <typename T>
-BasicHashMap<T>::~BasicHashMap() { clear(); }
+template <typename T, typename V>
+BasicHashMap<T,V>::~BasicHashMap() { clear(); }
 
 /*
    Returns hash for desired key value
@@ -51,8 +51,8 @@ BasicHashMap<T>::~BasicHashMap() { clear(); }
    @param  int	key to be hashed
    @return int	hashed value
 */
-template <typename T>
-int BasicHashMap<T>::hash(int key) {
+template <typename T, typename V>
+int BasicHashMap<T,V>::hash(T key) {
 	return key % size;
 }
 
@@ -62,8 +62,8 @@ int BasicHashMap<T>::hash(int key) {
    @param  int	key to be hashed   
    @return T	value at key, if none return 0		
 */
-template <typename T>
-T BasicHashMap<T>::get(int key) {
+template <typename T, typename V>
+V BasicHashMap<T,V>::get(T key) {
 	int hashValue = hash(key);
 	while (map[hashValue] != nullptr) {
 		if (map[hashValue]->key == key) 
@@ -81,8 +81,8 @@ T BasicHashMap<T>::get(int key) {
    @param  int	key to be hashed  
    @return void
 */
-template <typename T>
-void BasicHashMap<T>::set(int key, T value) {
+template <typename T, typename V>
+void BasicHashMap<T,V>::set(int key, T value) {
     int hashValue = hash(key);
 	while (map[hashValue] != nullptr) {
 		if (map[hashValue]->key != key)
@@ -93,7 +93,7 @@ void BasicHashMap<T>::set(int key, T value) {
 	// delete old key and set new
 	if (map[hashValue] != nullptr) 
 		delete map[hashValue];
-	map[hashValue] = new HashEntry<T>(key, value);
+	map[hashValue] = new HashEntry<T,V>(key, value);
 }
 
 /*
@@ -102,8 +102,8 @@ void BasicHashMap<T>::set(int key, T value) {
    @param  int	    key to be hashed 
    @return void
 */
-template <typename T>
-void BasicHashMap<T>::remove(int key) {
+template <typename T, typename V>
+void BasicHashMap<T,V>::remove(T key) {
 	int hashValue = hash(key);
 	while (map[hashValue] != nullptr) {
 		if (map[hashValue]->key == key) {
@@ -121,8 +121,8 @@ void BasicHashMap<T>::remove(int key) {
    @param  none
    @return void
 */
-template <typename T>
-void BasicHashMap<T>::clear() {
+template <typename T, typename V>
+void BasicHashMap<T,V>::clear() {
 	for (int i = 0; i < size; i++) {
 		if (map[i] != nullptr)
 		   delete map[i];

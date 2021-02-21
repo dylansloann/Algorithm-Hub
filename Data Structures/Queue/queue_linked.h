@@ -42,7 +42,6 @@ LinkedQueue<T>::LinkedQueue() : _size(0), head(nullptr), tail(nullptr) {}
    Copy Constructor
 
    @param  other	secondary queue to copy
-   @return void
 */
 template <typename T>
 LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& other) : _size(other._size), head(new Node<T>(other.head->data)), tail(nullptr) {
@@ -63,7 +62,7 @@ LinkedQueue<T>::LinkedQueue(const LinkedQueue<T>& other) : _size(other._size), h
    Copy Assignment Operator
 
    @param  rhs	secondary Queue to copy
-   @return void
+   @return LinkedQueue<T>& 	refrence to queue once fully copied
 */
 template <typename T>
 LinkedQueue<T>& LinkedQueue<T>::operator=(const LinkedQueue<T>& rhs) {

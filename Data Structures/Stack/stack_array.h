@@ -33,7 +33,6 @@ Stack<T>::Stack() : stackArray(nullptr), capacity(0), _size(0) {}
    Copy Constructor
 
    @param  other	secondary queue to copy
-   @return void
 */
 template <typename T>
 Stack<T>::Stack(const Stack& other) : stackArray(new T[capacity]), capacity(other.capacity), _size(other._size)  {
@@ -46,7 +45,7 @@ Stack<T>::Stack(const Stack& other) : stackArray(new T[capacity]), capacity(othe
    Copy Assignment Operator
 
    @param  rhs	secondary Queue to copy
-   @return void
+   @return Stack<T>& 	refrence to stack once fully copied
 */
 template <typename T>
 Stack<T>& Stack<T>::operator=(const Stack<T>& rhs) {

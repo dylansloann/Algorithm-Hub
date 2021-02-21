@@ -35,7 +35,6 @@ Queue<T>::Queue() : queueArray(nullptr), capacity(0), _size(0), front(-1), back(
    Copy Constructor
 
    @param  other	secondary queue to copy
-   @return void
 */
 template <typename T>
 Queue<T>::Queue(const Queue<T>& other) : queueArray(new int[capacity]), capacity(other.capacity), _size(other._size), front(other.front), back(other.back) {
@@ -48,7 +47,7 @@ Queue<T>::Queue(const Queue<T>& other) : queueArray(new int[capacity]), capacity
    Copy Assignment Operator
 
    @param  rhs	secondary Queue to copy
-   @return void
+   @return Queue<T>& 	refrence to queue once fully copied
 */
 template <typename T>
 Queue<T>& Queue<T>::operator=(const Queue<T>& rhs) {

@@ -4,29 +4,29 @@
 #include <vector>
 #include <iostream>
 
-template <typename T>
+template <typename T, typename V>
 struct HashEntry {
-	int key;
-	T value;
-	HashEntry(int key, T value) {
+	T key;
+	V value;
+	HashEntry(T key, V value) {
 		this->key= key;
 		this->value = value;
 	}
 };
 
-template <typename T>
+template <typename T, typename V>
 class ChainHashMap {
     private:
         int size;
-        std::vector<HashEntry<T>>* map;
+        std::vector<HashEntry<T,V>>* map;
     public:
         ChainHashMap(int size);
         ~ChainHashMap();
         
-        int hash(int key);
-        T get(int key);
-        void set(int key, T data);
-        void remove(int key);
+        int hash(T key);
+        V get(T key);
+        void set(T key, V data);
+        void remove(T key);
 };
 
 /*
@@ -35,14 +35,14 @@ class ChainHashMap {
    @param  size	    size to contruct array
    @return void
 */
-template <typename T>
-ChainHashMap<T>::ChainHashMap(int size) : size(size), map(new std::vector<HashEntry<T>>[size]) {}
+template <typename T, typename V>
+ChainHashMap<T,V>::ChainHashMap(int size) : size(size), map(new std::vector<HashEntry<T>>[size]) {}
 
 /*
    Destructor
 */
-template <typename T>
-ChainHashMap<T>::~ChainHashMap() {	delete[] map; }
+template <typename T, typename V>
+ChainHashMap<T,V>::~ChainHashMap() {	delete[] map; }
 
 /*
    Returns hash for desired key value
@@ -50,8 +50,9 @@ ChainHashMap<T>::~ChainHashMap() {	delete[] map; }
    @param  int	key to be hashed
    @return int	hashed value
 */
-template <typename T>
-int ChainHashMap<T>::hash(int key) {
+template <typename T, typename V>
+int ChainHashMap<T,V>::hash(T key) {
+    // only works for integers or double keys
     return key % size;
 }
 
@@ -61,8 +62,8 @@ int ChainHashMap<T>::hash(int key) {
    @param  int	key to be hashed   
    @return T	value at key, if none return 0		
 */
-template <typename T>
-T ChainHashMap<T>::get(int key) {
+template <typename T, typename V>
+T ChainHashMap<T,V>::get(T key) {
     int index = hash(key);
     for (int i = 0; i < map[index].size(); i++) {
         if (map[index][i].key == key) {
@@ -79,10 +80,10 @@ T ChainHashMap<T>::get(int key) {
    @param  int	key to be hashed  
    @return void
 */
-template <typename T>
-void ChainHashMap<T>::set(int key, T data) {
+template <typename T, typename V>
+void ChainHashMap<T,V>::set(T key, V data) {
     int index = hash(key);
-    HashEntry<T>* newEntry = new HashEntry<T>(key, data);
+    HashEntry<T,V>* newEntry = new HashEntry<T,V>(key, data);
     for (int i = 0; i < map[index].size(); i++) {
         if (map[index][i].key == key) {
             map[index][i].value = newEntry->value;
@@ -99,8 +100,8 @@ void ChainHashMap<T>::set(int key, T data) {
    @param  int	    key to be hashed 
    @return void
 */
-template <typename T>
-void ChainHashMap<T>::remove(int key) {
+template <typename T, typename V>
+void ChainHashMap<T,V>::remove(T key) {
     int index = hash(key);
        
     int vecIndex = 0;
