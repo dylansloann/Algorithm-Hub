@@ -65,7 +65,8 @@ Algorithm Hub
 │   └── Check Folder for all .cpp
 ├── Data Structures                    # implementation of common data structures
 │   ├── Graph                          # graph
-│   │   └── graph.h
+│   │   ├── graph_adj_list.h
+│   │   └── graph_adj_matrix.h
 │   ├── Hash Map
 │   │   ├── hash_map_basic.h
 │   │   └── hash_map_chaining.h
