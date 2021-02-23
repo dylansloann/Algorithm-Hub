@@ -108,7 +108,6 @@ void LinkedQueue<T>::enqueue(T data) {
 		tail = node;
 		node->link = nullptr;
 		_size = 1;
-		return;
 	}
 
 	else {

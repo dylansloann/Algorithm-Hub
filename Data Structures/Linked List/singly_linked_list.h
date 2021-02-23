@@ -24,12 +24,7 @@ class SinglyLinkedList {
 
 		bool empty();
 		int size();
-
 		void clear();
-
-		// single node conditions
-		void create_single(Node<T>* node);
-		void remove_single();
 
 		// operations
 		void push_front(T value);
@@ -44,8 +39,8 @@ class SinglyLinkedList {
 		// extra
 		void reverse();
 
-		const Node<T>* front();
-		const Node<T>* back();
+		const Node<T>* getHead();
+		const Node<T>* getTail();
 
 		void display();
 };
@@ -156,34 +151,6 @@ void SinglyLinkedList<T>::clear() {
 }
 
 /*
-   Creates Linked List of single element
-
-   @param  node		Node to be created from
-   @return void
-*/
-template <typename T>
-void SinglyLinkedList<T>::create_single(Node<T>* node) {
-	head = node;
-	tail = node;
-	node->link = nullptr;
-	_size = 1;
-}
-
-/*
-   Removes from Linked List of single elment (clears)
-
-   @param  none
-   @return void
-*/
-template <typename T>
-void SinglyLinkedList<T>::remove_single() {
-	delete head;
-	head = nullptr;
-	tail = nullptr;
-	_size = 0;
-}
-
-/*
    Inserts element at front of List
 
    @param  none
@@ -193,13 +160,18 @@ template <typename T>
 void SinglyLinkedList<T>::push_front(T value) {
 	Node<T>* node = new Node<T>(value);
 
-	if (empty()) { create_single(node); }
+    if ( empty() ) {
+		head = node;
+		tail = node;
+		node->link = nullptr;
+		_size = 1;
+    }
 
-	else {
+    else { 
 		node->link = head;
 		head = node;
 		_size++;
-	}
+    }
 }
 
 /*
@@ -212,13 +184,19 @@ template <typename T>
 void SinglyLinkedList<T>::push_back(T value) {
 	Node<T>* node = new Node<T>(value);
 
-	if (empty()) { create_single(node); }
+	if ( empty() ) {
+		head = node;
+		tail = node;
+		_size = 1;
+	}
 
-	else {
+	else { 
 		tail->link = node;
 		tail = node;
 		_size++;
 	}
+
+	node->link = nullptr;
 }
 
 /*
@@ -235,12 +213,8 @@ void SinglyLinkedList<T>::insert(T value, int index) {
 
 	else if (index == 0) { push_front(value); return; }
 	else if (index == _size) { push_back(value); return; }
-
-	Node<T>* node = new Node<T>(value);
-
-	if (empty()) { create_single(node); }
-	
 	else {
+		Node<T>* node = new Node<T>(value);
 		Node<T>* current = head;
 		Node<T>* previous = head;
 		for (int i = 0; i < _size; i++) {
@@ -286,15 +260,14 @@ template <typename T>
 void SinglyLinkedList<T>::remove_front() {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
-	else if (_size == 1) { remove_single(); }
+	Node<T>* tmp;
+	tmp = head;
+	head = head->link;
+	delete tmp;
+	_size--;
 
-	else {
-		Node<T>* tmp;
-		tmp = head;
-		head = head->link;
-		delete tmp;
-		_size--;
-	}
+	if (_size == 0)
+		head = nullptr;
 }
 
 /*
@@ -307,8 +280,6 @@ template <typename T>
 void SinglyLinkedList<T>::remove_back() {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
-	else if (_size == 1) { remove_single(); return; }
-
 	Node<T>* current = head;
 	Node<T>* previous = head;
 	while (current != nullptr) {
@@ -319,6 +290,9 @@ void SinglyLinkedList<T>::remove_back() {
 	tail = previous;
 	previous->link = nullptr;
 	_size--;
+
+	if (_size == 0)
+		head = nullptr;
 }
 
 /*
@@ -331,30 +305,23 @@ template <typename T>
 void SinglyLinkedList<T>::remove(int index) {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
 
-	else if (_size == 1 && index == 0) { remove_single(); return; }
-	else if (index == 0) { remove_front(); return; }
-
-	Node<T>* current = head;
-	Node<T>* previous = head;
-	for (int i = 0; i < index; i++) {
-		previous = current;
-		current = current->link;
-	}
-
-	// if value is at back
-	if (current->link == nullptr) { 
-		delete current;
-		tail = previous;
-		previous->link = nullptr;
-	}
-
-	// if value is in middle
+	else if (index == 0) { remove_front(); }
 	else {
+		Node<T>* current = head;
+		Node<T>* previous = head;
+		for (int i = 0; i < index; i++) {
+			previous = current;
+			current = current->link;
+		}
+
+		// if value is at back
+		if (current->link == nullptr)
+			tail = previous;
+
 		previous->link = current->link;
 		delete current;
+		_size--;
 	}
-
-	_size--;
 }
 
 /*
@@ -386,7 +353,7 @@ void SinglyLinkedList<T>::reverse() {
    @return Node<T>*	node at front of list
 */
 template <typename T>
-const Node<T>* SinglyLinkedList<T>::front() { return head; }
+const Node<T>* SinglyLinkedList<T>::getHead() { return head; }
 
 /*
    Returns Back node
@@ -395,7 +362,7 @@ const Node<T>* SinglyLinkedList<T>::front() { return head; }
    @return Node<T>*	node at back of list
 */
 template <typename T>
-const Node<T>* SinglyLinkedList<T>::back() { return tail; }
+const Node<T>* SinglyLinkedList<T>::getTail() { return tail; }
 
 /*
    Displays Linked List with arrows representing links

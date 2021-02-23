@@ -106,7 +106,6 @@ void LinkedStack<T>::push(T data) {
 		head = node;
 		node->link = nullptr;
 		_size = 1;
-		return;
 	}
 
 	else {

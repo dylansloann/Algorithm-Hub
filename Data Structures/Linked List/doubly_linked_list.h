@@ -29,12 +29,13 @@ class DoublyLinkedList {
 		void insertAfter(T value, Node<T>* node);
 		void insert(T value, int index);
 
-		void remove_front();
-		void remove_back();
+		void removeFront();
+		void removeBack();
 		void removeBefore(Node<T>* node);
 		void removeAfter(Node<T>* node);
 		void remove(int index);
 
+		Node<T>* getNode(int index);
 
 		bool empty();
 		int size();
@@ -151,7 +152,6 @@ void DoublyLinkedList<T>::push_back(T value) {
 	if ( empty() ) {
 		head = node;
 		tail = node;
-		node->next = nullptr;
 		node->prev = nullptr;
 		_size = 1;
 	}
@@ -162,6 +162,8 @@ void DoublyLinkedList<T>::push_back(T value) {
 		tail = node;
 		_size++;
 	}
+
+	node->next = nullptr;
 }
 
 /*
@@ -211,20 +213,10 @@ template <typename T>
 void DoublyLinkedList<T>::insert(T value, int index) {
 	if (index > _size) { throw std::invalid_argument("Index too large."); }
 
-	else if (index == 0) { push_front(value); return; }
-	else if (index == _size) { push_back(value); return; }
-
-	Node<T>* node = new Node<T>(value);
-
-	if ( empty() ) {        
-		head = node;
-		tail = node;
-		node->next = nullptr;
-		node->prev = nullptr;
-		_size = 1; 
-	}
-	
+	else if (index == 0) { push_front(value); }
+	else if (index == _size) { push_back(value); }
 	else {
+		Node<T>* node = new Node<T>(value);
 		Node<T>* current = head;
 		for (int i = 0; i < _size; i++) {
 			if (i == index) {
@@ -235,7 +227,7 @@ void DoublyLinkedList<T>::insert(T value, int index) {
 				_size++;
 				return;
 			}
-			current = current->link;
+			current = current->next;
 		}
 	}
 }
@@ -247,22 +239,16 @@ void DoublyLinkedList<T>::insert(T value, int index) {
    @return void
 */
 template <typename T>
-void DoublyLinkedList<T>::remove_front() {
+void DoublyLinkedList<T>::removeFront() {
 	if ( empty() ) { throw std::logic_error("Removing from empty list"); }
 
-	else if (_size == 1) { 	
-		delete head;
-		head = nullptr;
-		tail = nullptr;
-		_size = 0; 
-	}
+	Node<T>* tmp = head;
+	head = head->next;
+	delete tmp;
+	_size--;
 
-	else {
-		Node<T>* tmp = head;
-		head = head->next;
-		delete tmp;
-		_size--;
-	}
+	if (_size == 0)
+		tail = nullptr;
 }
 
 /*
@@ -272,22 +258,16 @@ void DoublyLinkedList<T>::remove_front() {
    @return void
 */
 template <typename T>
-void DoublyLinkedList<T>::remove_back() {
+void DoublyLinkedList<T>::removeBack() {
 	if ( empty() ) { throw std::logic_error("Removing from empty list"); }
 
-	else if (_size == 1) { 	
-		delete head;
-		head = nullptr;
-		tail = nullptr;
-		_size = 0; 
-	}
+	Node<T>* tmp = tail;
+	tail = tail->prev;
+	delete tmp;
+	_size--;
 
-	else {
-		Node<T>* tmp = tail;
-		tail = tail->prev;
-		delete tmp;
-		_size--;
-	}
+	if (_size == 0)
+		head = nullptr;
 }
 
 /*
@@ -300,14 +280,14 @@ template <typename T>
 void DoublyLinkedList<T>::removeBefore(Node<T>* inputNode) {
 	if (head == inputNode) { throw std::logic_error("Removing before head"); }
 	
-	Node<T>* tmp1 = inputNode->prev;
-	if (head->next = inputNode) { head = head->next; }
+	Node<T>* tmp = inputNode->prev;
+	if (head->next == inputNode) { head = head->next; }
 	else {
-		Node<T>* tmp2 = inputNode->prev->prev;
-		inputNode->prev = tmp2;
-		tmp2->next = inputNode;
+		inputNode->prev = inputNode->prev->prev;
+		inputNode->prev->next = inputNode;
 	}
-	delete tmp1;
+	delete tmp;
+	_size--;
 }
 
 /*
@@ -320,14 +300,14 @@ template <typename T>
 void DoublyLinkedList<T>::removeAfter(Node<T>* inputNode) {
 	if (tail == inputNode) { throw std::logic_error("Removing after tail"); }
 	
-	Node<T>* tmp1 = inputNode->next;
-	if (tail->next = inputNode) { tail = tail->prev; }
+	Node<T>* tmp = inputNode->next;
+	if (tail->prev == inputNode) { tail = tail->prev; }
 	else {
-		Node<T>* tmp2 = inputNode->next->next;
-		inputNode->next = tmp2;
-		tmp2->prev = inputNode;
+		inputNode->next = inputNode->next->next;
+		inputNode->next->prev = inputNode;
 	}
-	delete tmp1;
+	delete tmp;
+	_size--;
 }
 
 /*
@@ -339,34 +319,43 @@ void DoublyLinkedList<T>::removeAfter(Node<T>* inputNode) {
 template <typename T>
 void DoublyLinkedList<T>::remove(int index) {
 	if (empty()) { throw std::logic_error("Removing from empty list"); }
-
-	else if (_size == 1 && index == 0) { 
-		delete head;
-		head = nullptr;
-		tail = nullptr;
-		_size = 0;
-		return;
-	}
-	else if (index == 0) { remove_front(); return; }
-
-	Node<T>* current = head;
-	for (int i = 0; i < index; i++) {
-		current = current->next;
-	}
-
-	if (tail == current) { 
-		tail = current->prev;
-		tail->next = nullptr;
-		delete current;
-	}
-
+	
+	else if (index == 0) { removeFront();}
 	else {
+		Node<T>* current = head;
+		for (int i = 0; i < index; i++) {
+			current = current->next;
+		}
+
+		if (current->next == nullptr)
+			tail = current->prev;
+		
 		current->prev->next = current->next;
 		current->next->prev = current->prev;
+
 		delete current;
+		_size--;
+	}
+}
+
+/*
+   Gets pointer to node at certain index
+
+   @param  index	index of pointer to be retrieved
+   @return Node<T>*	pointer of index
+*/
+template <typename T>
+Node<T>* DoublyLinkedList<T>::getNode(int index) {
+	Node<T>* tmp = head;
+	int i = 0;
+	while (tmp->next != nullptr) {
+		if (i == index) 
+			break;
+		tmp = tmp->next;
+		i++;
 	}
 
-	_size--;
+	return tmp;
 }
 
 /*
@@ -389,7 +378,7 @@ void DoublyLinkedList<T>::clear() {
 	Node<T>* tmp;
 	for (int i = 0; i < _size; i++) {
 		tmp = head;
-		head = head->link;
+		head = head->next;
 		delete tmp;
 	}
 
@@ -421,7 +410,7 @@ void DoublyLinkedList<T>::display() {
 	Node<T>* current = head;
 	for (int i = 0; i < _size; i++) {
 		std::cout << '[' << current->data << ']' << "-->";
-		current = current->link;
+		current = current->next;
 	}
 	std::cout << std::endl;
 }
