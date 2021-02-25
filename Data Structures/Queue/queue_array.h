@@ -9,7 +9,7 @@ class Queue {
 		T* queueArray;
 		int capacity;
 		int _size;
-		int front, back;
+		int front, rear;
 	public:
 		Queue();
 		Queue(const Queue& other);
@@ -29,7 +29,7 @@ class Queue {
    Default Constructor
 */
 template <typename T>
-Queue<T>::Queue() : queueArray(nullptr), capacity(0), _size(0), front(0), back(0) {}
+Queue<T>::Queue() : queueArray(nullptr), capacity(0), _size(0), front(0), rear(0) {}
 
 /*
    Copy Constructor
@@ -37,7 +37,7 @@ Queue<T>::Queue() : queueArray(nullptr), capacity(0), _size(0), front(0), back(0
    @param  other	secondary queue to copy
 */
 template <typename T>
-Queue<T>::Queue(const Queue<T>& other) : queueArray(new int[capacity]), capacity(other.capacity), _size(other._size), front(other.front), back(other.back) {
+Queue<T>::Queue(const Queue<T>& other) : queueArray(new int[capacity]), capacity(other.capacity), _size(other._size), front(other.front), rear(other.rear) {
 	for (int i = 0; i <= _size; i++) {
 		queueArray[i] = other.queueArray[i];
 	}
@@ -58,7 +58,7 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& rhs) {
 	capacity = rhs.capacity;
 	_size = rhs._size;
 	front = rhs.front;
-	back = rhs.back;
+	rear = rhs.rear;
 	queueArray = new int[capacity];
 
 	for (int i = 0; i < _size; i++) {
@@ -75,7 +75,7 @@ template <typename T>
 Queue<T>::~Queue() { delete [] queueArray; }
 
 /*
-   Inserts (enqueues) element at back of queue (back = newer)
+   Inserts (enqueues) element at rear of queue (rear = newer)
 
    @param  data		data of element to be enqueued
    @return void
@@ -90,13 +90,13 @@ void Queue<T>::enqueue(T data) {
 		}
 		capacity *= 2;
 		front = 0;
-		back = _size - 1;
+		rear = _size - 1;
 		delete [] queueArray;
 		queueArray = doubledQueueArray;
 	}
 
-	back = (back + 1) % capacity;
-	queueArray[back] = data;
+	rear = (rear + 1) % capacity;
+	queueArray[rear] = data;
 	_size++;
 }
 
@@ -143,8 +143,10 @@ bool Queue<T>::empty() { if (_size == 0) { return true; } else { return false; }
 template <typename T>
 void Queue<T>::display() {
 	if (_size == 0) { return; }
-	for (int i = front; i <= back; i++) {
+	int i = front;
+	while (i != rear) {
 		std::cout << queueArray[i] << " ";
+		i = (i + 1) % _size;
 	}
 	std::cout << std::endl;
 }
