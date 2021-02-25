@@ -244,6 +244,7 @@ void DoublyLinkedList<T>::removeFront() {
 
 	Node<T>* tmp = head;
 	head = head->next;
+	head->prev = nullptr
 	delete tmp;
 	_size--;
 
@@ -263,6 +264,7 @@ void DoublyLinkedList<T>::removeBack() {
 
 	Node<T>* tmp = tail;
 	tail = tail->prev;
+	tail->next = nullptr;
 	delete tmp;
 	_size--;
 
