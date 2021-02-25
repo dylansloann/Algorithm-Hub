@@ -13,14 +13,14 @@ void bubbleSort(int arr[], int length) {
 		bool swapPerformed = false;
 		for (int j = 0; j < length - i; j++) {
 			if (arr[j] > arr[j + 1]) {
-				int swapValue = arr[j];
+				int tmp = arr[j];
 				arr[j] = arr[j + 1];
-				arr[j + 1] = swapValue;
+				arr[j + 1] = tmp;
 				swapPerformed = true;
 			}
 		}
 		// break if no swaps made in previous iteration (sorted)
-		if (swapPerformed == false) {
+		if (!swapPerformed) {
 			break;
 		}
 	}
