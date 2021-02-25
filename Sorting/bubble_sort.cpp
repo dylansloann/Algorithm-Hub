@@ -8,17 +8,17 @@
 	Space: Worst -- O(1)
 */
 
-void bubbleSort(int array[], int length) {
-	int swapValue = array[0];
+void bubbleSort(int arr[], int length) {
+	int swapValue = arr[0];
 	bool swapPerformed = false;
 
 	for (int i = 0; i < length; i++) {
 		swapPerformed = false;
 		for (int j = 0; j < length - i - 1; j++) {
-			if (array[j] > array[j + 1]) {
-				swapValue = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = swapValue;
+			if (arr[j] > arr[j + 1]) {
+				swapValue = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = swapValue;
 				swapPerformed = true;
 			}
 		}

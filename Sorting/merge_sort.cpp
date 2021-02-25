@@ -8,7 +8,7 @@
 	Space: Worst -- O(n)
 */
 
-void merge(int array[], int leftEnd, int mid, int rightEnd) {
+void merge(int arr[], int leftEnd, int mid, int rightEnd) {
 	// new temp array sizes
 	const int leftLength = mid - leftEnd + 1;
 	const int rightLength = rightEnd - mid;
@@ -17,12 +17,12 @@ void merge(int array[], int leftEnd, int mid, int rightEnd) {
 	int leftArray[leftLength];
 	int rightArray[rightLength];
 
-	// inserting data into left and right array's
+	// inserting data into left and right arr's
 	for (int i = 0; i < leftLength; i++) {
-		leftArray[i] = array[i + leftEnd];
+		leftArray[i] = arr[i + leftEnd];
 	}
 	for (int i = 0; i < rightLength; i++) {
-		rightArray[i] = array[mid + i + 1];
+		rightArray[i] = arr[mid + i + 1];
 	}
 
 	// iterators
@@ -33,11 +33,11 @@ void merge(int array[], int leftEnd, int mid, int rightEnd) {
 	// MERGE left and right side
 	while (i < leftLength && j < rightLength) {
 		if (leftArray[i] < rightArray[j]) {
-			array[k] = leftArray[i];
+			arr[k] = leftArray[i];
 			i++;
 		}
 		else {
-			array[k] = rightArray[j];
+			arr[k] = rightArray[j];
 			j++;
 		}
 		k++;
@@ -45,25 +45,25 @@ void merge(int array[], int leftEnd, int mid, int rightEnd) {
 
 	// inserting remaining elements on either left or right
 	while (i < leftLength) {
-		array[k] = leftArray[i];
+		arr[k] = leftArray[i];
 		i++;
 		k++;
 	}
 	while (j < rightLength) {
-		array[k] = rightArray[j];
+		arr[k] = rightArray[j];
 		j++;
 		k++;
 	}
 }
 
-void mergeSort(int array[], int leftEnd, int rightEnd) {
+void mergeSort(int arr[], int leftEnd, int rightEnd) {
 	if (leftEnd >= rightEnd) {return;}
 	// calculates midpoint and left and rightl length's
 	int mid = ((rightEnd + leftEnd) - 1) / 2;
 
 	// recursively calls merge sort until base case is hit
-	mergeSort(array, leftEnd, mid);
-	mergeSort(array, mid + 1, rightEnd);
+	mergeSort(arr, leftEnd, mid);
+	mergeSort(arr, mid + 1, rightEnd);
 
-	merge(array, leftEnd, mid, rightEnd);
+	merge(arr, leftEnd, mid, rightEnd);
 }

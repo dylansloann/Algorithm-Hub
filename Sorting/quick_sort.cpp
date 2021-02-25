@@ -8,34 +8,34 @@
 	Space: Worst -- O(logn)
 */
 
-void swap(int array[], int firstIndex, int secondIndex) {
-	int temp = array[firstIndex];
-	array[firstIndex] = array[secondIndex];
-	array[secondIndex] = temp;
+void swap(int arr[], int firstIndex, int secondIndex) {
+	int temp = arr[firstIndex];
+	arr[firstIndex] = arr[secondIndex];
+	arr[secondIndex] = temp;
 }
 
-int partion(int array[], int leftEnd, int rightEnd) {
-	int pivot = array[leftEnd];
+int partion(int arr[], int leftEnd, int rightEnd) {
+	int pivot = arr[leftEnd];
 	int swapIndex = leftEnd;
 
 	// moves all items that are less than pivot to the left
 	for (int i = leftEnd + 1; i <= rightEnd; i++) {
-		if (array[i] < pivot) {
+		if (arr[i] < pivot) {
 			swapIndex++;
-			swap(array, i, swapIndex);
+			swap(arr, i, swapIndex);
 		}
 	}
 
 	// swaps pivot with last item moved
-	swap(array, leftEnd, swapIndex);
+	swap(arr, leftEnd, swapIndex);
 	return swapIndex;
 }
 
-void quickSort(int array[], int leftEnd, int rightEnd) {
+void quickSort(int arr[], int leftEnd, int rightEnd) {
 	if (leftEnd >= rightEnd) { return; }
-	int pivotIndex = partion(array, leftEnd, rightEnd);
+	int pivotIndex = partion(arr, leftEnd, rightEnd);
 	
 	// recursively calls quickSort on left and right side of the pivotIndex
-	quickSort(array, leftEnd, pivotIndex - 1);
-	quickSort(array, pivotIndex + 1, rightEnd);
+	quickSort(arr, leftEnd, pivotIndex - 1);
+	quickSort(arr, pivotIndex + 1, rightEnd);
 }
