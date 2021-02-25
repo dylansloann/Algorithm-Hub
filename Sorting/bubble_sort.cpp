@@ -12,9 +12,9 @@ void bubbleSort(int arr[], int length) {
 	int swapValue = arr[0];
 	bool swapPerformed = false;
 
-	for (int i = 0; i < length; i++) {
+	for (int i = 1; i < length; i++) {
 		swapPerformed = false;
-		for (int j = 0; j < length - i - 1; j++) {
+		for (int j = 0; j < length - i; j++) {
 			if (arr[j] > arr[j + 1]) {
 				swapValue = arr[j];
 				arr[j] = arr[j + 1];
