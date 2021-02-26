@@ -8,9 +8,7 @@ using std::vector, std::queue;
 struct EdgeNode {
     int data;
     EdgeNode* next;
-
-    EdgeNode(int data) : data(data), next(nullptr) {};
-    EdgeNode(int data, EdgeNode* next) : data(data), next(next) {};
+    EdgeNode(int data, EdgeNode* next = nullptr) : data(data), next(next) {};
 };
 
 template <typename T>

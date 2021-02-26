@@ -8,10 +8,7 @@ template <typename T, typename V>
 struct HashEntry {
 	T key;
 	V value;
-	HashEntry(T key, V value) {
-		this->key= key;
-		this->value = value;
-	}
+	HashEntry(T key, V value) : key(key), value{value} {}
 };
 
 template <typename T, typename V>

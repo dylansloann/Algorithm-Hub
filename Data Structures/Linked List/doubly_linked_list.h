@@ -1,14 +1,17 @@
 #ifndef DOUBLY_LINKED_LIST_H
 #define DOUBLY_LINKED_LIST_H
 
+#include <iostream>
+
+using namespace std;
+
 template <typename T>
 class Node {
 	public:
 		T data;
 		Node* next;
 		Node* prev;
-		Node() : data(0), next(nullptr), prev(nullptr) {}
-		Node(T data) : data(data), next(nullptr), prev(nullptr) {}
+		Node(T data = 0) : data(data), next(nullptr), prev(nullptr) {}
 };
 
 template <typename T>
@@ -244,7 +247,7 @@ void DoublyLinkedList<T>::removeFront() {
 
 	Node<T>* tmp = head;
 	head = head->next;
-	head->prev = nullptr
+	head->prev = nullptr;
 	delete tmp;
 	_size--;
 

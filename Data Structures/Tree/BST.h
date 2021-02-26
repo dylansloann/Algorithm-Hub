@@ -9,10 +9,7 @@ struct Node {
     T data;
     Node* left;
     Node* right;
-
-    Node() : data(0), left(nullptr), right(nullptr) {}
-    Node(T data) : data(data), left(nullptr), right(nullptr) {}
-    int getData() { return data; }
+    Node(T data = 0) : data(data), left(nullptr), right(nullptr) {}
 };
 
 template <typename T>

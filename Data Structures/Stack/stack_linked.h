@@ -6,8 +6,7 @@ class Node {
 	public:
 		T data;
 		Node* link;
-		Node() : data(0), link(nullptr) {}
-		Node(int value) : data(value), link(nullptr) {}
+		Node(int value = 0) : data(value), link(nullptr) {}
 };
 
 template <typename T>
