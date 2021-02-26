@@ -27,6 +27,8 @@ class ChainHashMap {
         V get(T key);
         void set(T key, V data);
         void remove(T key);
+
+        void clear()
 };
 
 /*
@@ -42,7 +44,7 @@ ChainHashMap<T,V>::ChainHashMap(int size) : size(size), map(new std::vector<Hash
    Destructor
 */
 template <typename T, typename V>
-ChainHashMap<T,V>::~ChainHashMap() {	delete[] map; }
+ChainHashMap<T,V>::~ChainHashMap() { clear(); }
 
 /*
    Returns hash for desired key value
@@ -117,6 +119,17 @@ void ChainHashMap<T,V>::remove(T key) {
     if (found) {
         map[index].erase(map[index].begin() + vecIndex);
     }
+}
+
+/*
+   Deallocates all pointers in hash map array
+
+   @param  none
+   @return void
+*/
+template <typename T, typename V>
+void ChainHashMap<T,V>::clear() {
+	delete[] map;
 }
 
 #endif
