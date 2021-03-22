@@ -57,6 +57,8 @@ _--- Both graphs offer directed & undirected, both tree & graph implement BFS & 
 |Reverse 32bit Integer|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/rev_32bit_int.cpp|
 |Two Sum|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/two_sum.cpp|
 |Two Sum (Hash Table)|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/two_sum_hash.cpp|
+|Inorder Traversal|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/inorder_traversal.cpp|
+|Swap Node Pairs|https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/swap_node_pairs.cpp|
 
 
 ## Folder Hierarchy

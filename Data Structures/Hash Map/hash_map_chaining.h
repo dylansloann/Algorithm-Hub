@@ -15,7 +15,7 @@ template <typename T, typename V>
 class ChainHashMap {
     private:
         int size;
-        std::vector<HashEntry<T,V>>* map;
+        std::vector<std::vector<HashEntry<T,V>>> map;
     public:
         ChainHashMap(int size);
         ~ChainHashMap();
@@ -25,7 +25,7 @@ class ChainHashMap {
         void set(T key, V data);
         void remove(T key);
 
-        void clear()
+        void clear();
 };
 
 /*
@@ -35,7 +35,9 @@ class ChainHashMap {
    @return void
 */
 template <typename T, typename V>
-ChainHashMap<T,V>::ChainHashMap(int size) : size(size), map(new std::vector<HashEntry<T>>[size]) {}
+ChainHashMap<T,V>::ChainHashMap(int size) : size(size) {
+    map.resize(size);
+}
 
 /*
    Destructor
@@ -52,7 +54,7 @@ ChainHashMap<T,V>::~ChainHashMap() { clear(); }
 template <typename T, typename V>
 int ChainHashMap<T,V>::hash(T key) {
     // only works for integers or double keys
-    return key % size;
+    return 2;
 }
 
 /*
@@ -62,7 +64,7 @@ int ChainHashMap<T,V>::hash(T key) {
    @return T	value at key, if none return 0		
 */
 template <typename T, typename V>
-T ChainHashMap<T,V>::get(T key) {
+V ChainHashMap<T,V>::get(T key) {
     int index = hash(key);
     for (int i = 0; i < map[index].size(); i++) {
         if (map[index][i].key == key) {
