@@ -54,7 +54,7 @@ ChainHashMap<T,V>::~ChainHashMap() { clear(); }
 template <typename T, typename V>
 int ChainHashMap<T,V>::hash(T key) {
     // only works for integers or double keys
-    return 2;
+    return key % size;
 }
 
 /*
