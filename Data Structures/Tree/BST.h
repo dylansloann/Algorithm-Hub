@@ -85,15 +85,8 @@ BinarySearchTree<T>::~BinarySearchTree() { clear(root); }
 */
 template <typename T>
 Node<T>* BinarySearchTree<T>::insert(Node<T>* node, T n) {
-    if (node == nullptr) {
-        node = new Node<T>;
-        node->data = n;
-        node->left = nullptr;
-        node->right = nullptr;
-        if (root == nullptr)
-            root = node;
-    }
-    
+    if (node == nullptr)
+        node = new Node<T>(n);
     else if (n > node->data)
         node->right = insert(node->right, n);
     else
