@@ -9,36 +9,34 @@ struct Node {
     T data;
     Node* left;
     Node* right;
-    Node(T data = 0) : data(data), left(nullptr), right(nullptr) {}
+    Node(T data = 0, Node* left = nullptr, Node* right = nullptr) : data(data), left(left), right(right) {}
 };
 
 template <typename T>
 class BinarySearchTree {
     private:
         Node<T>* root;
+    
+    protected:
+        Node<T>* insertHelper(Node<T>* node, T n);
+        Node<T>* removeHelper(Node<T>* node, T n);
+        Node<T>* findHelper(Node<T>* node, T n) const;
+
+        Node<T>* findMinHelper(Node<T>* node) const;
+        Node<T>* findMaxHelper(Node<T>* node) const;
+        int heightHelper(const Node<T>* node) const;
+
+        Node<T>* clearHelper(Node<T>* node);
+
+        void inorderHelper(Node<T>* node);
+        void preorderHelper(Node<T>* node);
+        void postorderHelper(Node<T>* node);
+
     public:
         BinarySearchTree();
         BinarySearchTree(T data);
         ~BinarySearchTree();
 
-        Node<T>* insert(Node<T>* node, T n);
-        Node<T>* remove(Node<T>* node, T n);
-        Node<T>* find(Node<T>* node, T n) const;
-
-        Node<T>* findMin(Node<T>* node) const;
-        Node<T>* findMax(Node<T>* node) const;
-        int height(const Node<T>* node) const;
-
-        Node<T>* clear(Node<T>* node);
-
-        void inorder(Node<T>* node);
-        void preorder(Node<T>* node);
-        void postorder(Node<T>* node);
-        void BFS(Node<T>* node);
-
-
-
-        // pre root methods for paramaterized recursive methods
         Node<T>* insert(T n) { return insert(root, n); }
         Node<T>* remove(T n) { return remove(root, n); }
         Node<T>* find(T n) const { return find(root, n); }
@@ -51,7 +49,7 @@ class BinarySearchTree {
         void inorder() { inorder(root); }
         void preorder() { preorder(root); }
         void postorder() { postorder(root); }
-        void BFS() { BFS(root); }
+        void BFS();
 };
 
 
@@ -84,7 +82,7 @@ BinarySearchTree<T>::~BinarySearchTree() { clear(root); }
    @return Node<T>*    node that was inserted 
 */
 template <typename T>
-Node<T>* BinarySearchTree<T>::insert(Node<T>* node, T n) {
+Node<T>* BinarySearchTree<T>::insertHelper(Node<T>* node, T n) {
     if (node == nullptr)
         node = new Node<T>(n);
     else if (n > node->data)
@@ -103,7 +101,7 @@ Node<T>* BinarySearchTree<T>::insert(Node<T>* node, T n) {
    @return Node<T>*     node that was deleted
 */
 template <typename T>
-Node<T>* BinarySearchTree<T>::remove(Node<T>* node, T n) {
+Node<T>* BinarySearchTree<T>::removeHelper(Node<T>* node, T n) {
     if (node == nullptr)
         return node;
  
@@ -148,13 +146,13 @@ Node<T>* BinarySearchTree<T>::remove(Node<T>* node, T n) {
    @return Node<T>*    node that was found / (nullptr if not)
 */
 template <typename T>
-Node<T>* BinarySearchTree<T>::find(Node<T>* node, T n) const {
+Node<T>* BinarySearchTree<T>::findHelper(Node<T>* node, T n) const {
     if (node == nullptr) 
         return nullptr;
     else if (n > node->data)
-        find(node->right, n);
+        return find(node->right, n);
     else if (n < node->data)
-        find(node->left, n);
+        return find(node->left, n);
     else
         return node;
 }
@@ -166,7 +164,7 @@ Node<T>* BinarySearchTree<T>::find(Node<T>* node, T n) const {
    @return Node<T>*    minimum Node
 */
 template <typename T>
-Node<T>* BinarySearchTree<T>::findMin(Node<T>* node) const {
+Node<T>* BinarySearchTree<T>::findMinHelper(Node<T>* node) const {
     while (node->left != nullptr)
         node = node->left;
     return node;
@@ -179,7 +177,7 @@ Node<T>* BinarySearchTree<T>::findMin(Node<T>* node) const {
    @return Node<T>*    maximum node
 */
 template <typename T>
-Node<T>* BinarySearchTree<T>::findMax(Node<T>* node) const {
+Node<T>* BinarySearchTree<T>::findMaxHelper(Node<T>* node) const {
     while (node->right != nullptr)
         node = node->right;
     return node;
@@ -192,7 +190,7 @@ Node<T>* BinarySearchTree<T>::findMax(Node<T>* node) const {
    @return int    height of tree
 */
 template <typename T>
-int BinarySearchTree<T>::height(const Node<T>* node) const {
+int BinarySearchTree<T>::heightHelper(const Node<T>* node) const {
     if (node == nullptr)
         return 0;
 
@@ -212,7 +210,7 @@ int BinarySearchTree<T>::height(const Node<T>* node) const {
    @return void
 */
 template <typename T>
-Node<T>* BinarySearchTree<T>::clear(Node<T>* node) {
+Node<T>* BinarySearchTree<T>::clearHelper(Node<T>* node) {
     if (node == nullptr)
         return nullptr;
 
@@ -230,7 +228,7 @@ Node<T>* BinarySearchTree<T>::clear(Node<T>* node) {
    @return void 
 */
 template <typename T>
-void BinarySearchTree<T>::inorder(Node<T>* node) {
+void BinarySearchTree<T>::inorderHelper(Node<T>* node) {
     if (node == nullptr)
         return;
 
@@ -246,7 +244,7 @@ void BinarySearchTree<T>::inorder(Node<T>* node) {
    @return void 
 */
 template <typename T>
-void BinarySearchTree<T>::preorder(Node<T>* node) {
+void BinarySearchTree<T>::preorderHelper(Node<T>* node) {
     if (node == nullptr)
         return;
 
@@ -262,7 +260,7 @@ void BinarySearchTree<T>::preorder(Node<T>* node) {
    @return void 
 */
 template <typename T>
-void BinarySearchTree<T>::postorder(Node<T>* node) {
+void BinarySearchTree<T>::postorderHelper(Node<T>* node) {
     if (node == nullptr)
         return;
 
@@ -278,7 +276,8 @@ void BinarySearchTree<T>::postorder(Node<T>* node) {
    @return void 
 */
 template <typename T>
-void BinarySearchTree<T>::BFS(Node<T>* node) {
+void BinarySearchTree<T>::BFS() {
+    Node<T>* node = root;
     if (node != nullptr) {
         std::queue<Node<T>*> order;
         order.push(node);
