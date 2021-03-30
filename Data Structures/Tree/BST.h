@@ -85,6 +85,7 @@ template <typename T>
 Node<T>* BinarySearchTree<T>::insertHelper(Node<T>* node, T n) {
     if (node == nullptr)
         node = new Node<T>(n);
+        if (root = nullptr) { root = node; }
     else if (n > node->data)
         node->right = insert(node->right, n);
     else
