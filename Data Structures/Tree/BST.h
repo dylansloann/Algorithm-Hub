@@ -88,7 +88,7 @@ Node<T>* BinarySearchTree<T>::insertHelper(Node<T>* node, T n) {
         if (root = nullptr) { root = node; }
     else if (n > node->data)
         node->right = insert(node->right, n);
-    else
+    else if (n < node->data)
         node->left = insert(node->left, n);
 
     return node;
