@@ -84,7 +84,10 @@ Algorithm Hub
 │   │   └── stack_linked.h
 │   └── Tree                           # BST/binary tree/heap/trie
 │       ├── BST.h
-│       └── heap.h
+│       └── min_heap.h
+├── Minimum Spanning Tree              # MST algorithms
+│   ├── kruskal.cpp
+│   └── prims.cpp
 ├── Seaching                           # sorting algorithms
 │   ├── binary_search.cpp
 │   └── naive_string_search.cpp
@@ -93,6 +96,7 @@ Algorithm Hub
 └── Sorting                            # searching algorithms
     ├── bubble_sort.cpp
     ├── counting_sort.cpp
+    ├── heap_sort.cpp
     ├── inseration_sort.cpp
     ├── merge_sort.cpp
     ├── quick_sort.cpp
