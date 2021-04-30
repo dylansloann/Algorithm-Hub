@@ -17,12 +17,15 @@ _--- Many more to come ---_
 |------|------|
 |Bubble Sort|[bubble_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/bubble_sort.cpp)|
 |Counting Sort|[counting_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/counting_sort.cpp)|
+|Heap Sort|[heap_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/WIP_heap_sort.cpp)|
 |Insertion Sort|[insertion_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/insertion_sort.cpp)|
 |Merge Sort|[merge_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/merge_sort.cpp)|
 |Quick Sort|[quick_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/quick_sort.cpp)|
 |Radix Sort|[radix_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/radix_sort.cpp)|
 |Selection Sort|[selection_sort.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Sorting/selection_sort.cpp)|
-|Dijkstra's|[dijkstra.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Shortest%20Path/WIP_dijkstra.cpp)|
+|Dijkstras|[dijkstra.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Shortest%20Path/WIP_dijkstra.cpp)|
+|Kruskals|[kruskal.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Minimum%20Spanning%20Tree/WIP_kruskal.cpp)|
+|Prims|[prims.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Minimum%20Spanning%20Tree/WIP_prims.cpp)|
 |Linear Search|[linear_search.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/linear_search.cpp)|
 |Binary Search|[binary_search.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/binary_search.cpp)|
 |Naive String Search|[naive_string_search.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/Searching/naive_string_search.cpp)|
@@ -40,8 +43,10 @@ _--- Both graphs offer directed & undirected, both tree & graph implement BFS & 
 |Stack Array|[stack_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Stack/stack_array.h)|
 |Queue Linked List|[queue_linked.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_linked.h)|
 |Queue Array|[queue_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_array.h)|
+|AVL Tree|[AVL.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_AVL.h)|
 |Binary Search Tree|[BST.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/BST.h)|
-|Heap|[heap.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_heap.h)|
+|Min Heap|[heap.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_min_heap.h)|
+|Red Black Tree|[red_black.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_red_black.h)|
 |Hash Map Linear Probing|[hash_map_probing.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Map/hash_map_probing.h)|
 |Hash Map Chaining|[hash_map_chaining.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Map/hash_map_chaining.h)|
 
@@ -83,8 +88,10 @@ Algorithm Hub
 │   │   ├── stack_array.h
 │   │   └── stack_linked.h
 │   └── Tree                           # BST/binary tree/heap/trie
+│       ├── AVL.h
 │       ├── BST.h
-│       └── min_heap.h
+│       ├── min_heap.h
+│       └── red_black.h
 ├── Minimum Spanning Tree              # MST algorithms
 │   ├── kruskal.cpp
 │   └── prims.cpp
