@@ -73,17 +73,14 @@ class MinHeap {
             size++;
         }
 
-        bool is_empty() { return size == 0; }
-
-
         T min() { 
-            if (is_empty())
+            if (size == 0)
                 throw std::exception();
             return queue[0]; 
         }
 
         T remove_min() {
-            if (is_empty())
+            if (size == 0)
                 throw std::exception();
             
             T min = queue[0];
