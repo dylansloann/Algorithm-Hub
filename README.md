@@ -45,7 +45,7 @@ _--- Both graphs offer directed & undirected, both tree & graph implement BFS & 
 |Queue Array|[queue_array.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Queue/queue_array.h)|
 |AVL Tree|[AVL.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_AVL.h)|
 |Binary Search Tree|[BST.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/BST.h)|
-|Min Heap|[min_heap.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_min_heap.h)|
+|Min Heap|[min_heap.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/min_heap.h)|
 |Red Black Tree|[red_black.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Tree/WIP_red_black.h)|
 |Hash Map Linear Probing|[hash_map_probing.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Map/hash_map_probing.h)|
 |Hash Map Chaining|[hash_map_chaining.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Map/hash_map_chaining.h)|
