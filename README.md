@@ -50,23 +50,6 @@ _--- Both graphs offer directed & undirected, both tree & graph implement BFS & 
 |Hash Map Linear Probing|[hash_map_probing.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Map/hash_map_probing.h)|
 |Hash Map Chaining|[hash_map_chaining.h](https://github.com/dylansloann/Algorithm-Hub/blob/master/Data%20Structures/Hash%20Map/hash_map_chaining.h)|
 
-#### Problems
-| Name | File |
-|------|------|
-|Add Two List|[add_two_list.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/add_two_list.cpp)|
-|Contains Duplicates|[contains_duplicates.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/contains_duplicates.cpp)|
-|Every Other Char|[every_other_char.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/every_other_char.cpp)|
-|Inorder Traversal|[inorder_traversal.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/inorder_traversal.cpp)|
-|Intert Amount Palindrome|[insert_amount_palindrome](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/insert_amount_palindrome.cpp)|
-|Longest Common Prefix|[longest_common_prefix.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/longest_common_prefix.cpp)|
-|Merge Sorted Linked List|[merge_sorted_linkedlist.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/merge_sorted_linkedlist.cpp)|
-|Num Palindrome|[num_palindrome.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/num_palindrome.cpp)|
-|Reverse 32bit Integer|[rev_32bit_int.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/rev_32bit_int.cpp)|
-|Roman to Int|[roman_to_int.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/roman_to_int.cpp)|
-|Swap Node Pairs|[swap_node_pairs.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/swap_node_pairs.cpp)|
-|Two Sum (Hash Table)|[two_sum_hash.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/two_sum_hash.cpp)|
-|Two Sum|[two_sum.cpp](https://github.com/dylansloann/Algorithm-Hub/blob/master/--%20Problems%20--/two_sum.cpp)|
-
 
 ## Folder Hierarchy
 ```
